@@ -69,13 +69,9 @@ public class Orquestador {
 
     }
 
-    public static void mostrarListaAlquiler(ArrayList<Alquiler> listaAlquiler) {
-
-        for (Alquiler aux : listaAlquiler) {
-
-            System.out.println(aux);
-
-        }
+    public static void mostrarListaAlquiler(ArrayList<Alquiler> listaAlquiler) { 
+        
+        listaAlquiler.forEach((Alquiler aux ) -> System.out.println(aux));
 
     }
 
