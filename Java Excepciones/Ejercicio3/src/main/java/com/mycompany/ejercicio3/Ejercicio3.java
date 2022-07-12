@@ -31,13 +31,11 @@ public class Ejercicio3 {
 
         } catch (ArithmeticException e) {
 
-            System.out.println("Excepción hija");
             System.out.println("Error: " + e.getMessage());
             System.out.println("Error: " + e.toString());
 
         } catch (Exception e) {
 
-            System.out.println("Excepción madre");
             System.out.println("Error: " + e.getMessage());
             System.out.println("Error: " + e.toString());
 
