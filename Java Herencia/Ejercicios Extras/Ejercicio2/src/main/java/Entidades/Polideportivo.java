@@ -1,7 +1,6 @@
 package Entidades;
 
 import Constantes.Constantes;
-import java.lang.invoke.ConstantBootstraps;
 
 public final class Polideportivo extends Edificio {
 

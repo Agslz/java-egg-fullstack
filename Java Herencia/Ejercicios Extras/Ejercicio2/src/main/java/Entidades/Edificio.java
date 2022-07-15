@@ -2,7 +2,6 @@ package Entidades;
 
 import java.util.Scanner;
 import Constantes.Constantes;
-import java.io.Console;
 
 public abstract class Edificio {
 
