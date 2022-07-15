@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public class HotelCincoEstrellas extends HotelCuatroEstrellas {
 
     protected Integer cantidadDeSalones;
@@ -44,15 +46,15 @@ public class HotelCincoEstrellas extends HotelCuatroEstrellas {
 
         crearHotelCuatroEstrellas();
 
-        System.out.println("Ingrese la cantidad de salones de conferencia");
+        System.out.println(Constantes.INGRESE_CANTIDAD_SALONES);
 
         this.cantidadDeSalones = leer.nextInt();
 
-        System.out.println("Ingrese la cantidad de limosinas");
+        System.out.println(Constantes.INGRESE_CANTIDAD_LIMOSINAS);
 
         this.cantidadDeLimosinas = leer.nextInt();
 
-        System.out.println("Ingrese la cantidad de suites");
+        System.out.println(Constantes.INGRESE_CANTIDAD_SUITES);
 
         this.cantidadDeSuites = leer.nextInt();
 

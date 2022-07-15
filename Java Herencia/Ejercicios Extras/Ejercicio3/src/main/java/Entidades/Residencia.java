@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public final class Residencia extends AlojamientoExtraHotelero {
 
     private Integer cantidaDeHabitaciones;
@@ -41,13 +43,12 @@ public final class Residencia extends AlojamientoExtraHotelero {
     }
 
     public void crearResidencia() {
-        
-        System.out.println("Creamos una residencia");
-        
-        crearAlojamientoExtraHotelero();
-        
 
-        System.out.println("Ingrese la cantida de habitaciones");
+        System.out.println("Creamos una residencia");
+
+        crearAlojamientoExtraHotelero();
+
+        System.out.println(Constantes.INGRESE_CANTIDAD_HABITACIONES);
 
         cantidaDeHabitaciones = leer.nextInt();
 
@@ -63,7 +64,7 @@ public final class Residencia extends AlojamientoExtraHotelero {
 
         do {
 
-            System.out.println("Ingrese si la residencia posee descuentos para los gremios (SI/NO)");
+            System.out.println(Constantes.INGRESE_SI_POSEE_DESCUENTO_GREMIOS);
 
             descuentosGremiosAux = leer.next();
 
@@ -87,7 +88,7 @@ public final class Residencia extends AlojamientoExtraHotelero {
 
         do {
 
-            System.out.println("Ingrese si la residencia posee campos deportivos (SI/NO)");
+            System.out.println(Constantes.INGRESE_SI_POSEE_CAMPOS);
 
             camposDeportivosAux = leer.next();
 

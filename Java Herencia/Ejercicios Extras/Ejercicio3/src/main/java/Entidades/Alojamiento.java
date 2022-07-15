@@ -1,6 +1,7 @@
 package Entidades;
 
 import java.util.Scanner;
+import Constantes.Constantes;
 
 public class Alojamiento {
 
@@ -62,21 +63,21 @@ public class Alojamiento {
 
     public void crearAlojamiento() {
 
-        System.out.println("Ingrese el nombre del hotel");
+        System.out.println(Constantes.INGRESE_NOMBRE_HOTEL);
 
         this.nombre = leer.next();
 
-        System.out.println("Ingrese la dirección del hotel");
+        System.out.println(Constantes.INGRESE_DIRECCION_HOTEL);
 
         this.direccion = leer.next();
 
-        System.out.println("Ingrese la localidad del hotel");
+        System.out.println();
 
-        this.localidad = leer.next();
+        this.localidad = leer.next(Constantes.INGRESE_LOCALIDAD_HOTEL);
 
-        System.out.println("Ingrese el nombre del gerente");
+        System.out.println();
 
-        this.gerente = leer.next();
+        this.gerente = leer.next(Constantes.INGRESE_NOMBRE_GERENTE);
 
     }
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import Constantes.Constantes;
 
 public class Orquestador {
 
@@ -20,11 +21,11 @@ public class Orquestador {
         crearHoteles(listaHoteles, listaAlojamientos);
         crearAlojamientosExtraHoteleros(listaAlojamientos);
 
-        menu();
+        System.out.println(Constantes.MENU);
 
         do {
 
-            System.out.println("Ingrese una opción, si no recuerda presione 6 para mostrar el menu");
+            System.out.println(Constantes.OPCION_MENU);
 
             opc = leer.nextInt();
 
@@ -42,7 +43,7 @@ public class Orquestador {
                 case 5 ->
                     mostrarResidencias(listaAlojamientos);
                 case 6 ->
-                    menu();
+                    System.out.println(Constantes.MENU);
                 case 7 -> {
                     System.out.println("Usted salió");
                 }
@@ -122,20 +123,6 @@ public class Orquestador {
             }
 
         }
-
-    }
-
-    public static void menu() {
-
-        System.out.println("""
-                           1.Mostrar todos los alojamientos
-                           2.Mostrar hoteles ordenados por precio de mayor a menor
-                           3.Mostrar alojamientos extra hoteleros
-                           4.Mostrar Campings con restaurantes
-                           5.Mostrar recidencias con descuento para gremios
-                           6.Mostrar menu
-                           7.Salir
-                           """);
 
     }
 

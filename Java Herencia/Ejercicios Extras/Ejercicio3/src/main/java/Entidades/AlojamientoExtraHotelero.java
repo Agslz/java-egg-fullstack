@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public class AlojamientoExtraHotelero extends Alojamiento {
 
     protected boolean isPrivado;
@@ -36,7 +38,7 @@ public class AlojamientoExtraHotelero extends Alojamiento {
 
         validarAlojamientoPrivado(this.isPrivado);
 
-        System.out.println("Ingrese la cantidad de metros cuadrados que ocupa el alojamiento");
+        System.out.println(Constantes.INGRESE_CANTIDAD_METROS);
 
         this.cantidadMetrosCuadrados = leer.nextInt();
 
@@ -48,7 +50,7 @@ public class AlojamientoExtraHotelero extends Alojamiento {
 
         do {
 
-            System.out.println("¿El alojamiento es privado? (SI/NO)");
+            System.out.println(Constantes.ALOJAMIENTO_PRIVADO);
 
             aux = leer.next();
 

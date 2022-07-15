@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public final class Camping extends AlojamientoExtraHotelero {
 
     private Integer capacidadMaximaCarpas;
@@ -48,11 +50,11 @@ public final class Camping extends AlojamientoExtraHotelero {
         
         validarSiPoseeResturante(this.poseeRestaurante);
 
-        System.out.println("Ingrese la capacidad maxima de carpas");
+        System.out.println(Constantes.INGRESE_CAPACIDAD_CARPAS);
 
         this.capacidadMaximaCarpas = leer.nextInt();
 
-        System.out.println("Ingrese la cantidad de baños que posee");
+        System.out.println(Constantes.INGRESE_CANTIDAD_BANIOS);
 
         this.cantidadBañosDisplonibles = leer.nextInt();
 
@@ -64,7 +66,7 @@ public final class Camping extends AlojamientoExtraHotelero {
 
         do {
 
-            System.out.println("Ingrese si el restaurante posee restaurante (SI/NO)");
+            System.out.println(Constantes.INGRESE_SI_POSEE_RESTAURANTE);
 
             restauranteAux = leer.next();
 

@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public class HotelCuatroEstrellas extends Hotel {
 
     protected String gimnasio;
@@ -50,7 +52,7 @@ public class HotelCuatroEstrellas extends Hotel {
 
         do {
 
-            System.out.println("Ingrese el tipo de gimnasio");
+            System.out.println(Constantes.INGRESE_TIPO_GIMNASIO);
 
             gimaux = leer.next();
 
@@ -58,11 +60,11 @@ public class HotelCuatroEstrellas extends Hotel {
 
         this.gimnasio = gimaux;
 
-        System.out.println("Ingrese el nombre del restaurante");
+        System.out.println(Constantes.INGRESE_NOMBRE_RESTAURANTE);
 
         this.nombreRestaurante = leer.next();
 
-        System.out.println("Ingrese la capacidad del restaurante");
+        System.out.println(Constantes.INGRESE_CAPACIDAD_RESTAURANTE);
 
         this.capacidadRestaurante = leer.nextInt();
 
