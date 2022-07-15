@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public final class PersonalDeServicio extends Empleado {
 
     private String servicioAsignado;
@@ -30,7 +32,7 @@ public final class PersonalDeServicio extends Empleado {
 
         do {
 
-            System.out.println("Ingrese a que sección está asignado (Biblioteca/ Decanato/ Secretaría/)");
+            System.out.println(Constantes.INGRESE_SECCION_ASIGNADO);
 
             auxServicioAsignado = leer.next();
 

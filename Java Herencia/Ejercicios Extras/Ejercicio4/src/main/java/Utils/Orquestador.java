@@ -4,6 +4,7 @@ import Entidades.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import Constantes.Constantes;
 
 public class Orquestador {
 
@@ -17,11 +18,11 @@ public class Orquestador {
 
         int opc;
 
-        menu();
+        System.out.println(Constantes.MENU);
 
         do {
 
-            System.out.println("Ingrese una opción, si no recuerda presione 7");
+            System.out.println(Constantes.INGRESE_OPCION);
 
             opc = leer.nextInt();
 
@@ -39,7 +40,7 @@ public class Orquestador {
                 case 6 ->
                     mostraIndividuos(listaPersonas);
                 case 7 ->
-                    menu();
+                    System.out.println(Constantes.MENU);
                 case 8 ->
                     System.out.println("Usted salió");
                 default ->
@@ -75,20 +76,6 @@ public class Orquestador {
 
         }
 
-    }
-
-    public static void menu() {
-
-        System.out.println("""
-                           1.Cambiar estado civil de una persona
-                           2.Reasignar despacho a un empleado
-                           3.Matriculación de un estudiante en un nuevo curso
-                           4.Cambio de departamento a un profedor
-                           5.Traslado de sección de un empleado del personal de servicio
-                           6.Imprimir toda la información de cada tipo de individuo
-                           7.Mostrar Menu
-                           8.Salir
-                           """);
     }
 
     public static void cambiarEstadoCivil(List<Persona> listaPersonas) {

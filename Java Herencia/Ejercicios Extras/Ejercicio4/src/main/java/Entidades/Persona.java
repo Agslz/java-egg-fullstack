@@ -1,6 +1,7 @@
 package Entidades;
 
 import java.util.Scanner;
+import Constantes.Constantes;
 
 public class Persona {
 
@@ -54,19 +55,19 @@ public class Persona {
 
     public void crearPersona() {
 
-        System.out.println("Ingrese su nombre");
+        System.out.println(Constantes.INGRESE_NOMBRE);
 
         this.nombre = leer.next();
 
-        System.out.println("Ingrese su apellido");
+        System.out.println(Constantes.INGRESE_APELIIDO);
 
         this.apellido = leer.next();
 
-        System.out.println("Ingrese su numero de DNI");
+        System.out.println(Constantes.INGRESE_DNI);
 
         this.DNI = leer.nextInt();
 
-        System.out.println("Ingrese su estado civil");
+        System.out.println(Constantes.INGRESE_ESTADO_CIVIL);
 
         this.estadoCivil = leer.next();
 

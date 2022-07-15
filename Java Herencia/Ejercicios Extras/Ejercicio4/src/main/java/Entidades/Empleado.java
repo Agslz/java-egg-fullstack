@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public class Empleado extends Persona {
 
     private Integer anioIncorporacion;
@@ -34,11 +36,11 @@ public class Empleado extends Persona {
         
         crearPersona();
 
-        System.out.println("Ingrese su año de incorporación");
+        System.out.println(Constantes.INGRESE_ANIO_INCORPORACION);
 
         anioIncorporacion = leer.nextInt();
 
-        System.out.println("Ingrese el numero de despacho que fue asignado");
+        System.out.println(Constantes.INGRESE_NUMERO_DESPACHO);
 
         this.numeroDespachoAsignado = leer.nextInt();
 

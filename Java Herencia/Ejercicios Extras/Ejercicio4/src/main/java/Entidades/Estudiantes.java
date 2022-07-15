@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public final class Estudiantes extends Persona {
 
     private String cursoActual;
@@ -30,7 +32,7 @@ public final class Estudiantes extends Persona {
 
         do {
 
-            System.out.println("Ingrese el curso en el que se encuentra matriculado (Lengua/ Matematica/ Arquitectura/ Ingenieria)");
+            System.out.println(Constantes.INGRESE_CURSO_ACTUAL);
 
             auxCurso = leer.next();
 

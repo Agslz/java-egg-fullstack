@@ -1,5 +1,7 @@
 package Entidades;
 
+import Constantes.Constantes;
+
 public final class Profesores extends Empleado {
 
     private String departamento;
@@ -21,7 +23,7 @@ public final class Profesores extends Empleado {
     }
 
     public void crearProfesor() {
-        
+
         System.out.println("Creando profesor");
 
         crearEmpleado();
@@ -30,7 +32,7 @@ public final class Profesores extends Empleado {
 
         do {
 
-            System.out.println("Ingrese el departamento al cual pertenece (Lengua/ Matematica/ Arquitectura/ Ingenieria)");
+            System.out.println(Constantes.INGRESE_DESPACHO_ASIGNADO);
 
             auxDepartamento = leer.next();
 
