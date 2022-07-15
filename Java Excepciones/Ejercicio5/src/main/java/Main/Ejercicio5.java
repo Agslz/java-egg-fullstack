@@ -15,7 +15,7 @@ public class Ejercicio5 {
         int n, cont = 0;
 
         boolean flag = false;
-
+        
         do {
 
             try {
@@ -31,7 +31,7 @@ public class Ejercicio5 {
                     System.out.println("Usted lo intentó " + cont + " veces");
 
                     flag = true;
-
+                    
                 } else {
 
                     if (n > numeroAdivinar) {
