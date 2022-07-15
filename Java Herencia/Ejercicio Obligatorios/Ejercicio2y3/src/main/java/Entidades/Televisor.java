@@ -58,9 +58,7 @@ public final class Televisor extends Electrodomestico {
 
         super.precioFinal();
 
-        Integer precioInteger = this.precio;
-        
-        double precioDouble = precioInteger;
+        double precioDouble = Double.valueOf(this.precio);
         
         if (this.resolucion > 40) {
 

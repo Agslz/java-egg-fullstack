@@ -1,9 +1,7 @@
 package Utils;
 
 import Constantes.Constantes;
-import Entidades.Electrodomestico;
-import Entidades.Lavadora;
-import Entidades.Televisor;
+import Entidades.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,31 +20,14 @@ public class Orquestador {
 
         int cantLavadoras = leer.nextInt();
 
-        for (int i = 0; i < cantLavadoras; i++) {
-
-            Lavadora newLavadora = new Lavadora();
-
-            newLavadora.crearLavadora();
-            newLavadora.mostrarLavadora();
-
-            listaElectrodomesticos.add(newLavadora);
-
-        }
+        crearLavadora(cantLavadoras);
 
         System.out.println(Constantes.CANTIDAD_TELES);
 
         int cantidadTelevisores = leer.nextInt();
 
-        for (int i = 0; i < cantidadTelevisores; i++) {
+        crearTelevisor(cantidadTelevisores);
 
-            Televisor newTelevisor = new Televisor();
-
-            newTelevisor.crearTelevisor();
-            newTelevisor.mostrarTelevisor();
-
-            listaElectrodomesticos.add(newTelevisor);
-        }
-        
         calcularPrecioFinal(precioLavadoras, precioTeles);
 
         precioTotal = precioTeles + precioLavadoras;
@@ -74,6 +55,34 @@ public class Orquestador {
                 precioTeles += aux.getPrecio();
 
             }
+
+        }
+
+    }
+
+    public static void crearTelevisor(int cantidadTelevisores) {
+
+        for (int i = 0; i < cantidadTelevisores; i++) {
+
+            Televisor newTelevisor = new Televisor();
+
+            newTelevisor.crearTelevisor();
+            newTelevisor.mostrarTelevisor();
+
+            listaElectrodomesticos.add(newTelevisor);
+        }
+    }
+
+    public static void crearLavadora(int cantLavadoras) {
+
+        for (int i = 0; i < cantLavadoras; i++) {
+
+            Lavadora newLavadora = new Lavadora();
+
+            newLavadora.crearLavadora();
+            newLavadora.mostrarLavadora();
+
+            listaElectrodomesticos.add(newLavadora);
 
         }
 
