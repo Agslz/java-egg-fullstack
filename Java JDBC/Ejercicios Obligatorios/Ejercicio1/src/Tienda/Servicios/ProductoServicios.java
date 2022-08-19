@@ -33,7 +33,7 @@ public class ProductoServicios {
     }
 
     public void crearProducto(String nombre, double precio, int codFab) throws Exception {
-        if (codFab >= 10 || 0 < codFab) {
+        if (codFab > 10 || 0 > codFab) {
             throw new Exception("El codigo de fabricante es invalido");
         }
         validar(nombre, precio);
