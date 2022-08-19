@@ -21,6 +21,8 @@ public class Constantes {
     public static final String NOMBRE_FABRICANTE = "Ingrese el nombre del fabricante";
     public static final String INGRESE_ID = "Ingrese la ID del fabricante";
     public static final String FABRICANTE_NO_ENCONTRADO = "Fabricante no encontrado";
+    public static final String DESPEDIDA = "Usted salió";
+    public static final String PRODUCTO_A_BORRAR = "Ingrese el codigo del producto a borrar";
 
     //----------------------------------------------------------QUERYS PRODUCTO--------------------------------------------------------------//
     public static final String NOMBRE_TODOS_LOS_PRODUCTOS = "SELECT nombre FROM producto;";
@@ -71,7 +73,7 @@ public class Constantes {
     //-------------------------------------------------------------MENUS-----------------------------------------------------------------//
     public static final String MENU_PRINCIPAL
             = "\n1.Opciones Fabricante"
-            + "\n2.Opciones     Producto"
+            + "\n2.Opciones Producto"
             + "\n3.Salir";
 
     public static final String MENU_PRODUCTO
@@ -89,6 +91,6 @@ public class Constantes {
     public static final String MENU_FABRICANTE
             = "\n1.Mostrar todos los fabricantes"
             + "\n2.Ingresar un fabricante"
-            + "\n3."
+            + "\n3.Mostrar fabricante por su ID"
             + "\n4.Volver al menu principal";
 }
