@@ -88,6 +88,13 @@ public class ProductoServicios {
         }
     }
 
+    public void mostrarNombreProductos() throws Exception {
+        Collection<Producto> listaProductos = dao.mostrarNombreTodosLosProductos();
+        for (Producto listaProducto : listaProductos) {
+            System.out.println(listaProducto);
+        }
+    }
+
     public void listarProductos() throws Exception {
         Collection<Producto> listaProductos = dao.listarProductos();
         for (Producto listaProducto : listaProductos) {
@@ -115,5 +122,14 @@ public class ProductoServicios {
             System.out.println(producto);
         }
     }
+    
+    public void mostrarMasBarato() throws Exception {
+        Collection<Producto> productosEntre = dao.mostrarNombrePrecioProductoMasBarato();
+        for (Producto producto : productosEntre) {
+            System.out.println(producto);
+        }
+    }
+    
+    
 
 }

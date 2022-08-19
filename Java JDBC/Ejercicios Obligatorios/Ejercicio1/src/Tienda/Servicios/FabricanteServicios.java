@@ -11,9 +11,10 @@ public class FabricanteServicios {
 
     private final FabricanteDAO dao;
 
-    public FabricanteServicios(FabricanteDAO dao) {
+    public FabricanteServicios() {
         this.dao = new FabricanteDAO();
     }
+
 
     public void mostrarTodosLosFabricantes() throws Exception {
         dao.listarTodosFabricantes();
