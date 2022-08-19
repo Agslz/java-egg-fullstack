@@ -48,7 +48,6 @@ public class ServiciosCantanteFamoso {
                            5.Salir
                            """);
     }
-
     public void eliminarCantante() {
 
         System.out.println("Ingrese el cantante a eliminar");
