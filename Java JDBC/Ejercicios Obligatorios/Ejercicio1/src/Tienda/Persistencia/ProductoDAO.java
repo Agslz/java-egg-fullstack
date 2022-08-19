@@ -3,6 +3,7 @@ package Tienda.Persistencia;
 import Tienda.Entidades.Producto;
 import java.util.ArrayList;
 import Tienda.Constantes.Constantes;
+import java.util.Collection;
 
 public final class ProductoDAO extends DAO {
 
@@ -55,6 +56,31 @@ public final class ProductoDAO extends DAO {
             throw ex;
         }
 
+    }
+    
+    public Collection<Producto> listarProductos() throws Exception {//Pide todo de todos los productos
+        Collection<Producto> productos = new ArrayList();
+        try {
+            String sql = Constantes.TODOS_LOS_PRODUCTOS;
+            consultarBase(sql);
+            Producto producto = null;
+            while (resultado.next()) {
+                producto = new Producto();
+                producto.setCodigo(resultado.getInt(1));
+                producto.setNombre(resultado.getString(2));
+                producto.setPrecio(resultado.getDouble(3));
+                producto.setCodigoFabricante(resultado.getInt(4));
+                productos.add(producto);
+            }
+
+            return productos;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+            throw new Exception(Constantes.ERROR_SISTEMA);
+        } finally {
+            desconectarBase();
+        }
     }
 
     public ArrayList<Producto> mostrarNombreTodosLosProductos() throws Exception {
@@ -142,7 +168,7 @@ public final class ProductoDAO extends DAO {
 
                 producto.setNombre(resultado.getString(1));
                 producto.setPrecio(resultado.getDouble(2));
-                
+
                 ListaProductos.add(producto);
             }
 
@@ -177,7 +203,7 @@ public final class ProductoDAO extends DAO {
 
                 producto.setNombre(resultado.getString(1));
                 producto.setPrecio(resultado.getDouble(2));
-                
+
                 ListaProductos.add(producto);
             }
 
@@ -212,7 +238,7 @@ public final class ProductoDAO extends DAO {
 
                 producto.setNombre(resultado.getString(1));
                 producto.setPrecio(resultado.getDouble(2));
-                
+
                 ListaProductos.add(producto);
             }
 
@@ -229,4 +255,38 @@ public final class ProductoDAO extends DAO {
 
     }
 
+    public Producto obtenerProductoPorCodigo(int cod) throws Exception {
+        try {
+
+            String sql = Constantes.OBTENER_ID(cod);
+
+            consultarBase(sql);
+
+            Producto productoModificado = new Producto();
+
+            while (resultado.next()) {
+
+                productoModificado.setCodigo(resultado.getInt(1));
+
+                productoModificado.setNombre(resultado.getString(2));
+
+                productoModificado.setPrecio(resultado.getDouble(3));
+
+                productoModificado.setCodigoFabricante(resultado.getInt(4));
+            }
+
+            return productoModificado;
+
+        } catch (Exception e) {
+
+            System.out.println(e.toString());
+
+            throw new Exception(Constantes.ERROR_PRODUCTO);
+
+        } finally {
+
+            desconectarBase();
+        }
+
+    }
 }

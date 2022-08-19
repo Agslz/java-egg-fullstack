@@ -12,6 +12,8 @@ public class Constantes {
     public static final String NOMBRE_PRODUCTO = "Ingrese el nombre del producto";
     public static final String PRECIO_PRODUCTO = "Ingrese el precio del producto";
     public static final String CODIGO_FABRICANTE = "Ingres el codigo del fabricante no mayor a 10";
+    public static final String ERROR_PRODUCTO = "Error al obtener el producto";
+    public static final String ERROR_SISTEMA = "Error del sistema";
 
     //----------------------------------------------------------QUERYS PRODUCTO--------------------------------------------------------------//
     public static final String NOMBRE_TODOS_LOS_PRODUCTOS = "SELECT nombre FROM producto;";
@@ -37,8 +39,9 @@ public class Constantes {
                 + producto.getPrecio() + ", "
                 + producto.getCodigoFabricante() + ");";
     }
-
+    public static final String TODOS_LOS_PRODUCTOS = "SELECT * FROM producto";
     //----------------------------------------------------------QUERYS FABRICANTE--------------------------------------------------------------//
+    
     public static final String NOMBRE_TODOS_LOS_FABRICANTES = "SELECT * FROM fabricante;";
 
     public static String ELIMINAR_FABRICANTE(Fabricante fabricante) {
@@ -54,4 +57,31 @@ public class Constantes {
                 + " VALUES('" + fabricante.getNombre() + ");";
     }
 
+    public static String OBTENER_ID(int cod) {
+        return "SELECT * FROM producto WHERE codigo = " + cod + ";";
+    }
+
+    //-------------------------------------------------------------MENUS-----------------------------------------------------------------//
+    public static final String MENU_PRINCIPAL
+            = "\n1.Opciones Fabricante"
+            + "\n2.Opciones     Producto"
+            + "\n3.Salir";
+
+    public static final String MENU_PRODUCTO
+            = "\n1.Mostrar nombre de todos los productos"
+            + "\n2.Mostrar nombre y precio de todos los productos"
+            + "\n3.Mostrar los productos con precio entre 120$ y 202$"
+            + "\n4.Mostrar todos los portatiles"
+            + "\n5.Mostrar el producto mas barato"
+            + "\n6.Ingresar un producto"
+            + "\n7.Modificar un producto según su id "
+            + "\n8.Obtener un producto por su id"
+            + "\n9.Borrar un producto con su id"
+            + "\n10.Volver al menu principal";
+
+    public static final String MENU_FABRICANTE
+            = "\n1.Mostrar todos los fabricantes"
+            + "\n2.Ingresar un fabricante"
+            + "\n3."
+            + "\n4.Volver al menu principal";
 }
