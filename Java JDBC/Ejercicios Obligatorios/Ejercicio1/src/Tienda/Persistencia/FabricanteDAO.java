@@ -42,11 +42,11 @@ public final class FabricanteDAO extends DAO {
 
     }
 
-    public void eliminarFabricante(Fabricante fabricante) throws Exception {
+    public void eliminarFabricante(int codigo) throws Exception {
 
         try {
 
-            String sql = Constantes.ELIMINAR_FABRICANTE(fabricante);
+            String sql = Constantes.ELIMINAR_FABRICANTE(codigo);
 
             insertarModificarEliminar(sql);
 
@@ -63,7 +63,7 @@ public final class FabricanteDAO extends DAO {
 
         try {
 
-            String sql = Constantes.NOMBRE_PRECIO_TODOS_LOS_PRODUCTOS;
+            String sql = Constantes.TODOS_LOS_FABRICANTES;
 
             consultarBase(sql);
 
@@ -85,6 +85,37 @@ public final class FabricanteDAO extends DAO {
 
             throw e;
 
+        } finally {
+            desconectarBase();
+        }
+
+    }
+
+    public void listarTodosFabricantes() throws Exception {
+        mostrarTodosLosFabricantes().forEach(System.out::println);
+    }
+
+    public Fabricante buscarFabricantePorID(int id) throws Exception {
+
+        try {
+
+            String sql = Constantes.OBTENER_ID(id);
+
+            consultarBase(sql);
+
+            Fabricante fabricanteRetornado = new Fabricante();
+
+            while (resultado.next()) {
+
+                fabricanteRetornado.setCodigo(resultado.getInt(1));
+                fabricanteRetornado.setNombre(resultado.getString(2));
+
+            }
+
+            return fabricanteRetornado;
+
+        } catch (Exception e) {
+            throw e;
         } finally {
             desconectarBase();
         }

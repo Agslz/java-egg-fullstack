@@ -57,28 +57,44 @@ public final class ProductoDAO extends DAO {
         }
 
     }
-    
-    public Collection<Producto> listarProductos() throws Exception {//Pide todo de todos los productos
+
+    public Collection<Producto> listarProductos() throws Exception {
+
         Collection<Producto> productos = new ArrayList();
+
         try {
+
             String sql = Constantes.TODOS_LOS_PRODUCTOS;
+
             consultarBase(sql);
+
             Producto producto = null;
+
             while (resultado.next()) {
+
                 producto = new Producto();
+
                 producto.setCodigo(resultado.getInt(1));
+
                 producto.setNombre(resultado.getString(2));
+
                 producto.setPrecio(resultado.getDouble(3));
+
                 producto.setCodigoFabricante(resultado.getInt(4));
+
                 productos.add(producto);
             }
 
             return productos;
+
         } catch (Exception e) {
+
             System.out.println(e.toString());
 
             throw new Exception(Constantes.ERROR_SISTEMA);
+
         } finally {
+
             desconectarBase();
         }
     }

@@ -14,6 +14,13 @@ public class Constantes {
     public static final String CODIGO_FABRICANTE = "Ingres el codigo del fabricante no mayor a 10";
     public static final String ERROR_PRODUCTO = "Error al obtener el producto";
     public static final String ERROR_SISTEMA = "Error del sistema";
+    public static final String INGRESE_OPC = "Ingrese una opción";
+    public static final String NOMBRE_FABRICANTE_INVALIDO = "El nombre del fabricante es invalido";
+    public static final String ID_INVALIDO = "El id ingresado es invalido";
+    public static final String NOMBRE_INVALIDO = "El nombre ingresado es invalido";
+    public static final String NOMBRE_FABRICANTE = "Ingrese el nombre del fabricante";
+    public static final String INGRESE_ID = "Ingrese la ID del fabricante";
+    public static final String FABRICANTE_NO_ENCONTRADO = "Fabricante no encontrado";
 
     //----------------------------------------------------------QUERYS PRODUCTO--------------------------------------------------------------//
     public static final String NOMBRE_TODOS_LOS_PRODUCTOS = "SELECT nombre FROM producto;";
@@ -41,11 +48,11 @@ public class Constantes {
     }
     public static final String TODOS_LOS_PRODUCTOS = "SELECT * FROM producto";
     //----------------------------------------------------------QUERYS FABRICANTE--------------------------------------------------------------//
-    
-    public static final String NOMBRE_TODOS_LOS_FABRICANTES = "SELECT * FROM fabricante;";
 
-    public static String ELIMINAR_FABRICANTE(Fabricante fabricante) {
-        return "DELETE FROM fabricante WHERE codigo= " + fabricante.getCodigo() + ";";
+    public static final String TODOS_LOS_FABRICANTES = "SELECT * FROM fabricante;";
+
+    public static String ELIMINAR_FABRICANTE(int codigo) {
+        return "DELETE FROM fabricante WHERE codigo= " + codigo + ";";
     }
 
     public static String MODIFICAR_FABRICANTE(Fabricante fabricante) {
