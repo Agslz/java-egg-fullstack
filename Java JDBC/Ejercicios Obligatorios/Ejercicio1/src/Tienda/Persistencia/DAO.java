@@ -21,7 +21,7 @@ public abstract class DAO {
 
         try {
             Class.forName(DRIVER);
-            String urlBaseDeDatos = "jdbc:mysql//localhost:3306/" + DATABASE + "?useSSL=false";
+            String urlBaseDeDatos = "jdbc:mysql://localhost:3306/" + DATABASE + "?useSSL=false";
             conexion = DriverManager.getConnection(urlBaseDeDatos, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException ex) {
             throw ex;
@@ -53,7 +53,7 @@ public abstract class DAO {
             sentencia = conexion.createStatement();
             sentencia.executeUpdate(sql);
         } catch (ClassNotFoundException | SQLException ex) {
-            conexion.rollback();
+          //conexion.rollback();
             throw ex;
         } finally {
             desconectarBase();

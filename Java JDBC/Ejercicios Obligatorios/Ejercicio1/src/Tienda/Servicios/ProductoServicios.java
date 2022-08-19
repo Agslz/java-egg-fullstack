@@ -91,7 +91,7 @@ public class ProductoServicios {
     public void mostrarNombreProductos() throws Exception {
         Collection<Producto> listaProductos = dao.mostrarNombreTodosLosProductos();
         for (Producto listaProducto : listaProductos) {
-            System.out.println(listaProducto);
+            System.out.println(listaProducto.getNombre());
         }
     }
 
