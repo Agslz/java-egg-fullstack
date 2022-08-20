@@ -28,5 +28,4 @@ public class Revolver {
     public void setPosicionAgua(Integer posicionAgua) {
         this.posicionAgua = posicionAgua;
     }
-
 }
