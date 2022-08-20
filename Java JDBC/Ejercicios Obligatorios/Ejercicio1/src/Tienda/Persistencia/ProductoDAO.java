@@ -148,8 +148,8 @@ public final class ProductoDAO extends DAO {
 
                 producto = new Producto();
 
-                producto.setCodigo(resultado.getInt(1));
-                producto.setNombre(resultado.getString(2));
+                producto.setNombre(resultado.getString(1));
+                producto.setPrecio(resultado.getDouble(2));
                 ListaProductos.add(producto);
             }
 

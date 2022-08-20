@@ -112,21 +112,21 @@ public class ProductoServicios {
     public void productosEntre120_202() throws Exception {
         Collection<Producto> productosEntre = dao.mostrarProductosPrecioEntre120_202();
         for (Producto producto : productosEntre) {
-            System.out.println(producto);
+            System.out.println("Nombre: " + producto.getNombre() + " .Precio: " + producto.getPrecio());
         }
     }
 
     public void mostrarPortatiles() throws Exception {
         Collection<Producto> productosEntre = dao.mostrarTodosLosPortatiles();
         for (Producto producto : productosEntre) {
-            System.out.println(producto);
+            System.out.println("Nombre: " + producto.getNombre() + " .Precio: " + producto.getPrecio());
         }
     }
     
     public void mostrarMasBarato() throws Exception {
         Collection<Producto> productosEntre = dao.mostrarNombrePrecioProductoMasBarato();
         for (Producto producto : productosEntre) {
-            System.out.println(producto);
+            System.out.println("Nombre: " + producto.getNombre() + " .Precio: " + producto.getPrecio());
         }
     }
     
