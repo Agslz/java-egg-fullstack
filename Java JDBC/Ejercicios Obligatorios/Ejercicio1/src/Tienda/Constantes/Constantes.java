@@ -26,7 +26,7 @@ public class Constantes {
 
     //----------------------------------------------------------QUERYS PRODUCTO--------------------------------------------------------------//
     public static final String NOMBRE_TODOS_LOS_PRODUCTOS = "SELECT nombre FROM producto;";
-    public static final String NOMBRE_PRECIO_TODOS_LOS_PRODUCTOS = "SELECT p.nombre, p.precio FROM producto p;";
+    public static final String NOMBRE_PRECIO_TODOS_LOS_PRODUCTOS = "SELECT nombre,precio FROM producto;";
     public static final String PRODUCTOS_ENTRE_120_Y_202 = "SELECT nombre,precio FROM producto WHERE precio BETWEEN 120 AND 202;";
     public static final String PRODUCTOS_PORTATILES = "SELECT nombre, precio FROM producto WHERE nombre LIKE '%portátil%';";
     public static final String PRODUCTO_MAS_BARATO = "SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;";
@@ -43,11 +43,13 @@ public class Constantes {
     }
 
     public static String INSERTAR_PRODUCTOS(Producto producto) {
-        return "INSERT INTO producto(nombre, precio, codigo_fabricante)"
-                + " VALUES('" + producto.getNombre() + "', "
-                + producto.getPrecio() + ", "
-                + producto.getCodigoFabricante() + ");";
+        return "INSERT INTO Producto (nombre,precio,codigo_fabricante)" + "VALUES ( ' "
+                + producto.getNombre() + " ' ,  "
+                + producto.getPrecio() + " , "
+                + producto.getCodigoFabricante() + " );";
+
     }
+
     public static final String TODOS_LOS_PRODUCTOS = "SELECT * FROM producto";
     //----------------------------------------------------------QUERYS FABRICANTE--------------------------------------------------------------//
 
