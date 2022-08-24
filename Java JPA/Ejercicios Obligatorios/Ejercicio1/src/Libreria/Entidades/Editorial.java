@@ -60,5 +60,4 @@ public class Editorial implements Serializable {
     public String toString() {
         return "ID: " + id + ", Nombre: " + nombre + ", Alta: " + alta;
     }
-
 }
