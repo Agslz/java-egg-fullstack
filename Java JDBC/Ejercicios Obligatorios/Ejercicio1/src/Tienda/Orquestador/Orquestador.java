@@ -11,7 +11,7 @@ public class Orquestador {
 
     public static void menuPrincipal() throws Exception {
 
-        Integer opc;
+        int opc;
 
         do {
 
@@ -32,14 +32,13 @@ public class Orquestador {
                     System.out.println(Constantes.DESPEDIDA);
             }
         } while (opc != 3);
-
     }
 
     public static void menuProducto() throws Exception {
 
         ProductoServicios productoServicios = new ProductoServicios();
 
-        Integer opc;
+        int opc;
 
         do {
 
@@ -83,16 +82,14 @@ public class Orquestador {
                     menuPrincipal();
                     break;
             }
-
         } while (opc != 10);
-
     }
 
     public static void menuFabricante() throws Exception {
 
         FabricanteServicios fabricanteServicios = new FabricanteServicios();
 
-        Integer opc;
+        int opc;
 
         do {
 
@@ -118,11 +115,7 @@ public class Orquestador {
                 case 4:
                     menuPrincipal();
                     break;
-
             }
-
         } while (opc != 4);
-
     }
-
 }
