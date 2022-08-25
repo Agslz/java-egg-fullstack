@@ -3,10 +3,9 @@ package Libreria.Entidades;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table(name = "Libro")
@@ -25,19 +24,19 @@ public class Libro implements Serializable {
     @Column(name = "ejemplares")
     private Integer ejemplares;
 
-    @Column(name = "ejemplaresPrestados")
+    @Column(name = "ejemplares_prestados")
     private Integer ejemplaresPrestados;
 
-    @Column(name = "ejemplaresRestantes")
+    @Column(name = "ejemplares_pestantes")
     private Integer ejemplaresRestantes;
 
     @Column(name = "alta")
     private Boolean alta;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @OneToOne
     private Autor autor;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @OneToOne
     private Editorial editorial;
 
     public Libro() {
