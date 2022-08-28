@@ -73,6 +73,7 @@ public class Orquestador {
                 break;
             case 8:
                 System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
+                menuprincipal();
                 break;
             default:
                 System.out.println(Constantes.OPCION_INCORRECTA);
@@ -111,10 +112,11 @@ public class Orquestador {
 
                 break;
             case 8:
-                
+
                 break;
             case 9:
                 System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
+                menuprincipal();
                 break;
             default:
                 System.out.println(Constantes.OPCION_INCORRECTA);
@@ -154,6 +156,7 @@ public class Orquestador {
                 break;
             case 8:
                 System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
+                menuprincipal();
                 break;
             default:
                 System.out.println(Constantes.OPCION_INCORRECTA);

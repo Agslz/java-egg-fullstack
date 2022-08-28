@@ -45,4 +45,21 @@ public class Constantes {
     public static final String SALIDA = "Usted salió del sistema";
     public static final String OPCION_INCORRECTA = "La opción ingresada es incorrecta";
     public static final String VOLVER_MENU_PRINCIPAL = "Volver al menu principal";
+    //-------------------------------------------------------------QUERYS EDITORIAL-------------------------------------------------------------
+    public static final String OBTENER_TODAS_LAS_EDITORIALES = "SELECT e FROM editorial e";
+    public static final String OBTENER_EDITORIAL_POR_ID = "SELECT e FROM editorial e WHERE e.id LIKE :id";
+    public static final String OBTENER_EDITORIAL_POR_NOMBRE = "SELECT e FROM editorial e WHERE e.nombre LIKE :nombre";
+    //-------------------------------------------------------------QUERYS AUTOR-------------------------------------------------------------
+    public static final String OBTENER_TODOS_LOS_AUTORES = "SELECT a FROM autor a";
+    public static final String OBTENER_AUTOR_POR_ID = "SELECT a FROM autor a WHERE a.id LIKE :id";
+    public static final String OBTENER_AUTOR_POR_NOMBRE = "SELECT a FROM autor a WHERE a.nombre LIKE :nombre";
+    //-------------------------------------------------------------QUERYS LIBRO-------------------------------------------------------------
+    public static final String OBTENER_TODOS_LOS_LIBROS = "SELECT l FROM libro l";
+    //Verificar Query OBTENER_LIBRO_POR_EDITORIAL
+    public static final String OBTENER_LIBRO_POR_EDITORIAL = "SELECT l FROM libro l WHERE l.AUTOR_id_autor LIKE :nombre";
+    //Verificar Query OBTENER_LIBRO_POR_AUTOR
+    public static final String OBTENER_LIBRO_POR_AUTOR = "SELECT l FROM libor WHERE l.EDITORIAL_id_editorial LIKE :nombre"; 
+    public static final String OBTENER_LIBRO_POR_ISBN = "SELECT l FROM libro l WHERE l.isbn LIKE :isbn";
+    public static final String OBTENER_LIBRO_POR_TITULO = "SELECT l FROM libro l WHERE l.titulo LIKE :titulo";
+
 }

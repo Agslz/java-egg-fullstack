@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.OneToOne;
 
 @Entity
-@Table(name = "Libro")
+@Table(name = "libro")
 public class Libro implements Serializable {
 
     @Id
@@ -27,7 +27,7 @@ public class Libro implements Serializable {
     @Column(name = "ejemplares_prestados")
     private Integer ejemplaresPrestados;
 
-    @Column(name = "ejemplares_pestantes")
+    @Column(name = "ejemplares_restantes")
     private Integer ejemplaresRestantes;
 
     @Column(name = "alta")
@@ -38,7 +38,7 @@ public class Libro implements Serializable {
 
     @OneToOne
     private Editorial editorial;
-
+    
     public Libro() {
     }
 

@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name = "Autor")
+@Table(name = "autor")
 public class Autor implements Serializable {
 
     @Id
