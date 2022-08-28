@@ -56,9 +56,9 @@ public class Constantes {
     //-------------------------------------------------------------QUERYS LIBRO-------------------------------------------------------------
     public static final String OBTENER_TODOS_LOS_LIBROS = "SELECT l FROM libro l";
     //Verificar Query OBTENER_LIBRO_POR_EDITORIAL
-    public static final String OBTENER_LIBRO_POR_EDITORIAL = "SELECT l FROM libro l WHERE l.AUTOR_id_autor LIKE :nombre";
+    public static final String OBTENER_LIBRO_POR_EDITORIAL = "SELECT l FROM libro WHERE l.EDITORIAL_id_editorial.nombre LIKE :nombre";
     //Verificar Query OBTENER_LIBRO_POR_AUTOR
-    public static final String OBTENER_LIBRO_POR_AUTOR = "SELECT l FROM libor WHERE l.EDITORIAL_id_editorial LIKE :nombre"; 
+    public static final String OBTENER_LIBRO_POR_AUTOR = "SELECT l FROM libro l WHERE l.AUTOR_id_autor.nombre LIKE :nombre"; 
     public static final String OBTENER_LIBRO_POR_ISBN = "SELECT l FROM libro l WHERE l.isbn LIKE :isbn";
     public static final String OBTENER_LIBRO_POR_TITULO = "SELECT l FROM libro l WHERE l.titulo LIKE :titulo";
 
