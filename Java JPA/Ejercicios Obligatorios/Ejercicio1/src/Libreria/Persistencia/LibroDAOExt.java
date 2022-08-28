@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LibroDAOExt extends DAO<Libro> {
 
-    //ToDo metodo borrar libro por su isbn y verficar querys de buscar libro por editorial y autor
+    //ToDo verficar querys de buscar libro por editorial y autor
     public List<Libro> obtenerTodosLosLibros() {
         conectar();
         List listaLibros = em.createQuery(Constantes.OBTENER_TODOS_LOS_LIBROS).getResultList();
@@ -47,6 +47,15 @@ public class LibroDAOExt extends DAO<Libro> {
         desconectar();
         return libro;
 
+    }
+    
+    public void EliminarLibroPorIsbn(Integer isbn) throws Exception{
+        Libro libroBorrar = obtenerLibroPorISBN(isbn);
+        if (isbn == null) {
+            throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);
+        }
+        System.out.println(Constantes.LIBRO_ELIMINADO);
+        super.eliminar(libroBorrar);
     }
 
     @Override
