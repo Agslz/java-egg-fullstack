@@ -31,22 +31,21 @@ public class LibroDAOExt extends DAO<Libro> {
 
     }
 
-    public Libro obtenerLibroPorEditorial(String editorial) {
+    public List<Libro> obtenerLibrosPorEditorial(String editorial) {
         //ToDo verificar query editorial
         conectar();
-        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_EDITORIAL).setParameter("EDITORIAL_id_editorial", editorial).getResultList();
+        List <Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_EDITORIAL).setParameter("EDITORIAL_id_editorial", editorial).getResultList();
         desconectar();
-        return libro;
+        return listaLibros;
 
     }
 
-    public Libro obtenerLibroPorAutor(String nombreAutor) {
+    public List<Libro> obtenerLibrosPorAutor(String nombreAutor) {
         //ToDo verificar query nombre autor
         conectar();
-        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_AUTOR).setParameter("AUTOR_id_autor", nombreAutor).getResultList();
+        List<Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_AUTOR).setParameter("AUTOR_id_autor", nombreAutor).getResultList();
         desconectar();
-        return libro;
-
+        return listaLibros;
     }
     
     public void EliminarLibroPorIsbn(Integer isbn) throws Exception{

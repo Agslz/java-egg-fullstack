@@ -17,9 +17,9 @@ public class AutorDAOExt extends DAO<Autor> {
         return listaAutores;
     }
 
-    public Autor obtenerAutorPorID(Integer id) {
+    public Autor obtenerAutorPorID(Integer id) throws Exception {
         if (id == null || id <= 0) {
-            System.out.println(Constantes.ID_INVALIDO);
+            throw new Exception(Constantes.ID_INVALIDO);
         }
         conectar();
         Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_ID).setParameter("id", id).getResultList();
@@ -27,9 +27,9 @@ public class AutorDAOExt extends DAO<Autor> {
         return autor;
     }
 
-    public Autor obtenerAutorPorNombre(String nombre) {
+    public Autor obtenerAutorPorNombre(String nombre) throws Exception {
         if (nombre == null || nombre.trim().isEmpty()) {
-            System.out.println(Constantes.NOMBRE_INVALIDO);
+            throw new Exception(Constantes.NOMBRE_INVALIDO);
         }
         conectar();
         Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_NOMBRE).setParameter("nombre", nombre).getResultList();

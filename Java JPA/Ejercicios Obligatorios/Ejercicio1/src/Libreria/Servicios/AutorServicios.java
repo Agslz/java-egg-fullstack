@@ -136,6 +136,6 @@ public class AutorServicios {
     public void pedirAltaAutor(Autor autor) {
         System.out.println(Constantes.PREGUNTA_AUTOR_DISPONIBLE);
         String opc = leer.next().substring(0, 1);
-        autor.setAlta(opc.equalsIgnoreCase("Y"));
+        autor.setAlta(opc.equalsIgnoreCase("S"));
     }
 }

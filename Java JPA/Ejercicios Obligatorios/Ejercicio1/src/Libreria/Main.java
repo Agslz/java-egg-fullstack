@@ -4,9 +4,9 @@ import Libreria.Utils.Orquestador;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Orquestador.crearOrquestador();
+        Orquestador.menuprincipal();
 
     }
 

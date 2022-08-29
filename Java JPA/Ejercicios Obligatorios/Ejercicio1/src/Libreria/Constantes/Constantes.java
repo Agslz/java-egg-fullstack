@@ -26,6 +26,17 @@ public class Constantes {
     public static final String INGRESE_NOMBRE_EDITORIAL = "Ingrese el nombre de la editorial";
     public static final String INGRESE_EDITORIAL_ID = "Ingrese el ID de la editorial";
     public static final String EDITORIAL_NO_ENCONTADA = "No se encontró la editorial";
+    public static final String LIBRO_ANADIDO = "Libro añadido con exito";
+    public static final String INGRESE_ISBN = "Ingrese el ISBN del libro";
+    public static final String ISBN_INVALIDO = "El ISBN ingresado es invalido";
+    public static final String INGRESE_TITULO = "Ingrese el titulo del libro";
+    public static final String TITULO_LIBRO_INVALIDO = "El titulo ingresado es invalido";
+    public static final String INGRESE_ANIO_LANZAMIENTO = "Ingrese el año de lanzamiento del libro";
+    public static final String INGRESE_COPIAS_LIBROS = "Ingrese cuantas copias tiene el libro";
+    public static final String LIBROS_AGOTADOS = "Libro agotado";
+    public static final String LIBRO_PRESTADO = "Libro prestado con exito!";
+    public static final String LIBROS_LLENOS = "Error. Capacidad de libros a devolver alcanzada";
+    public static final String LIBRO_DEVUELTO = "Libro devuelto con exito";
     
     //-------------------------------------------------------------OPCIONES MENU-------------------------------------------------------------
     public static final String INGRESE_OPCION = "Ingrese una opción";
@@ -36,10 +47,8 @@ public class Constantes {
     public static final String OBTENER_TODAS_LAS_EDITORIALES = "SELECT e FROM editorial e";
     public static final String OBTENER_EDITORIAL_POR_ID = "SELECT e FROM editorial e WHERE e.id LIKE :id";
     public static final String OBTENER_EDITORIAL_POR_NOMBRE = "SELECT e FROM editorial e WHERE e.nombre LIKE :nombre";
-    //Verificar Query CONTAR_EDITORIALES
     public static final String CONTAR_EDITORIALES = "SELECT COUNT(e) FROM editorial";
     //-------------------------------------------------------------QUERYS AUTOR--------------------------------------------------------------
-    //Verificar Query CONTAR_AUTORES
     public static final String CONTAR_AUTORES = "SELECT COUNT(a) FROM autor";
     public static final String OBTENER_TODOS_LOS_AUTORES = "SELECT a FROM autor a";
     public static final String OBTENER_AUTOR_POR_ID = "SELECT a FROM autor a WHERE a.id LIKE :id";

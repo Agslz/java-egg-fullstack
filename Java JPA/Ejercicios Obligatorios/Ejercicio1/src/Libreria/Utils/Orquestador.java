@@ -2,165 +2,183 @@ package Libreria.Utils;
 
 import java.util.Scanner;
 import Libreria.Constantes.Constantes;
+import Libreria.Servicios.AutorServicios;
+import Libreria.Servicios.EditorialServicios;
+import Libreria.Servicios.LibroServicios;
 
 public class Orquestador {
 
     public static final Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    private static final LibroServicios libroServicios = new LibroServicios();
+    private static final AutorServicios autorServicios = new AutorServicios();
+    private static final EditorialServicios editorialServicios = new EditorialServicios();
 
-    public static void crearOrquestador() {
+    public static void menuprincipal() throws Exception {
 
-        menuprincipal();
+        int opc;
 
-    }
+        do {
 
-    public static void menuprincipal() {
+            System.out.println(Constantes.OPCIONES_MENU_PRINCIPAL);
 
-        System.out.println(Constantes.OPCIONES_MENU_PRINCIPAL);
+            System.out.println(Constantes.INGRESE_OPCION);
 
-        System.out.println(Constantes.INGRESE_OPCION);
+            opc = leer.nextInt();
 
-        int opc = leer.nextInt();
+            switch (opc) {
+                case 1:
+                    menuAutor();
+                    break;
+                case 2:
+                    menuLibro();
+                    break;
+                case 3:
+                    menuEditorial();
+                    break;
+                default:
+                    System.out.println(Constantes.OPCION_INCORRECTA);
+            }
 
-        switch (opc) {
-
-            case 1:
-                menuAutor();
-                break;
-            case 2:
-                menuLibro();
-                break;
-            case 3:
-                menuEditorial();
-                break;
-            case 4:
-                System.out.println(Constantes.SALIDA);
-                break;
-            default:
-                System.out.println(Constantes.OPCION_INCORRECTA);
-        }
-
-    }
-
-    public static void menuAutor() {
-
-        System.out.println(Constantes.OPCIONES_MENU_AUTOR);
-
-        System.out.println(Constantes.INGRESE_OPCION);
-
-        int opc = leer.nextInt();
-
-        switch (opc) {
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-            case 8:
-                System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
-                menuprincipal();
-                break;
-            default:
-                System.out.println(Constantes.OPCION_INCORRECTA);
-        }
+        } while (opc != 4);
+                    System.out.println(Constantes.SALIDA);
 
     }
 
-    public static void menuLibro() {
+    public static void menuAutor() throws Exception {
 
-        System.out.println(Constantes.OPCIONES_MENU_LIBRO);
+        int opc;
 
-        System.out.println(Constantes.INGRESE_OPCION);
+        do {
 
-        int opc = leer.nextInt();
+            System.out.println(Constantes.OPCIONES_MENU_AUTOR);
 
-        switch (opc) {
-            case 1:
+            System.out.println(Constantes.INGRESE_OPCION);
 
-                break;
-            case 2:
+            opc = leer.nextInt();
 
-                break;
-            case 3:
+            switch (opc) {
+                case 1:
+                    autorServicios.crearAutor();
+                    break;
+                case 2:
+                    autorServicios.mostrarTodosLosAutores();
+                    break;
+                case 3:
+                    autorServicios.mostrarAutorPorID();
+                    break;
+                case 4:
+                    autorServicios.mostrarAutorPorNombre();
+                    break;
+                case 5:
+                    autorServicios.modificarAutorPorID();
+                    break;
+                case 6:
+                    autorServicios.darAutorDeAlta();
+                    break;
+                case 7:
+                    autorServicios.darAutorDeBaja();
+                    break;
+                case 8:
+                    menuprincipal();
+                    break;
+                default:
+                    System.out.println(Constantes.OPCION_INCORRECTA);
+            }
 
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-            case 8:
-
-                break;
-            case 9:
-                System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
-                menuprincipal();
-                break;
-            default:
-                System.out.println(Constantes.OPCION_INCORRECTA);
-        }
+        } while (opc != 8);
 
     }
 
-    public static void menuEditorial() {
+    public static void menuLibro() throws Exception {
 
-        System.out.println(Constantes.OPCIONES_MENU_EDITORIAL);
+        int opc;
 
-        System.out.println(Constantes.INGRESE_OPCION);
+        do {
 
-        int opc = leer.nextInt();
+            System.out.println(Constantes.OPCIONES_MENU_LIBRO);
 
-        switch (opc) {
-            case 1:
+            System.out.println(Constantes.INGRESE_OPCION);
 
-                break;
-            case 2:
+            opc = leer.nextInt();
 
-                break;
-            case 3:
+            switch (opc) {
+                case 1:
+                    libroServicios.crearLibro();
+                    break;
+                case 2:
+                    libroServicios.mostrarTodosLosLibros();
+                    break;
+                case 3:
+                    libroServicios.mostrarLibroPorIsbn();
+                    break;
+                case 4:
+                    libroServicios.mostrarLibroPorTitulo();
+                    break;
+                case 5:
+                    libroServicios.mostrarLibrosDeUnAutor();
+                    break;
+                case 6:
+                    libroServicios.mostrarLibrosDeUnaEditorial();
+                    break;
+                case 7:
+                    libroServicios.darLibro();
+                    break;
+                case 8:
+                    libroServicios.devolverLibro();
+                    break;
+                case 9:
+                    menuprincipal();
+                    break;
+                default:
+                    System.out.println(Constantes.OPCION_INCORRECTA);
+            }
 
-                break;
-            case 4:
+        } while (opc != 9);
 
-                break;
-            case 5:
+    }
 
-                break;
-            case 6:
+    public static void menuEditorial() throws Exception {
 
-                break;
-            case 7:
+        int opc;
 
-                break;
-            case 8:
-                System.out.println(Constantes.VOLVER_MENU_PRINCIPAL);
-                menuprincipal();
-                break;
-            default:
-                System.out.println(Constantes.OPCION_INCORRECTA);
-        }
+        do {
+
+            System.out.println(Constantes.OPCIONES_MENU_EDITORIAL);
+
+            System.out.println(Constantes.INGRESE_OPCION);
+
+            opc = leer.nextInt();
+
+            switch (opc) {
+                case 1:
+                    editorialServicios.crearEditorial();
+                    break;
+                case 2:
+                    editorialServicios.mostrarTodasEditoriales();
+                    break;
+                case 3:
+                    editorialServicios.mostrarEditorialPorId();
+                    break;
+                case 4:
+                    editorialServicios.mostrarEditorialPorNombre();
+                    break;
+                case 5:
+                    editorialServicios.modificarEditorialPorID();
+                    break;
+                case 6:
+                    editorialServicios.DarEditorialDeAlta();
+                    break;
+                case 7:
+                    editorialServicios.DarEditorialDeBaja();
+                    break;
+                case 8:
+                    menuprincipal();
+                    break;
+                default:
+                    System.out.println(Constantes.OPCION_INCORRECTA);
+            }
+
+        } while (opc != 8);
 
     }
 

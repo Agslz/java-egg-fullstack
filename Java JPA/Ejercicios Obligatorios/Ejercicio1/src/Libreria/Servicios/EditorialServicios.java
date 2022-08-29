@@ -133,7 +133,7 @@ public class EditorialServicios {
     public void pedirAltaEditorial(Editorial editorial) {
         System.out.println(Constantes.PREGUNTA_EDITORIAL_DISPONIBLE);
         String opc = leer.next().substring(0, 1);
-        editorial.setAlta(opc.equalsIgnoreCase("Y"));
+        editorial.setAlta(opc.equalsIgnoreCase("S"));
     }
 
 }
