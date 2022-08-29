@@ -15,6 +15,18 @@ public class Constantes {
     public static final String ALTA_EDITORIAL_EXITOSA = "La editorial que usted ha seleccionado ha sido alta de baja exitosamente";
     public static final String LIBRO_NO_ENCONTRADO = "El libro que usted ha seleccionado no se encuentra";
     public static final String LIBRO_ELIMINADO = "Libro eliminado exitosamente";
+    public static final String ERROR = "Ocurrió un error";
+    public static final String INGRESE_NOMBRE_AUTOR = "Ingrese el nombre del autor";
+    public static final String AUTOR_NO_ENCONTRADO = "No se encontró el autor";
+    public static final String INGRESE_AUTOR_ID = "Ingrese el ID del autor";
+    public static final String AUTOR_ANADIDO = "Autor añadido con exito";
+    public static final String PREGUNTA_AUTOR_DISPONIBLE = "El autor se encuentra disponible? (S/N)";
+    public static final String PREGUNTA_EDITORIAL_DISPONIBLE = "La editorial se encuentra disponible? (S/N)";
+    public static final String EDITORIAL_ANADIDA = "Editorial añadida con exito";
+    public static final String INGRESE_NOMBRE_EDITORIAL = "Ingrese el nombre de la editorial";
+    public static final String INGRESE_EDITORIAL_ID = "Ingrese el ID de la editorial";
+    public static final String EDITORIAL_NO_ENCONTADA = "No se encontró la editorial";
+    
     //-------------------------------------------------------------OPCIONES MENU-------------------------------------------------------------
     public static final String INGRESE_OPCION = "Ingrese una opción";
     public static final String SALIDA = "Usted salió del sistema";
