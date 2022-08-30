@@ -6,7 +6,6 @@ import java.util.List;
 
 public class LibroDAOExt extends DAO<Libro> {
 
-    //ToDo verficar querys de buscar libro por editorial y autor
     public List<Libro> obtenerTodosLosLibros() {
         conectar();
         List listaLibros = em.createQuery(Constantes.OBTENER_TODOS_LOS_LIBROS).getResultList();
@@ -17,38 +16,36 @@ public class LibroDAOExt extends DAO<Libro> {
 
     public Libro obtenerLibroPorTitulo(String titulo) {
         conectar();
-        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_TITULO).setParameter("titulo", titulo).getResultList();
+        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_TITULO).setParameter("titulo", titulo).getSingleResult();
         desconectar();
         return libro;
 
     }
 
-    public Libro obtenerLibroPorISBN(Integer isbn) {
+    public Libro obtenerLibroPorISBN(String isbn) {
         conectar();
-        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_ISBN).setParameter("isbn", isbn).getResultList();
+        Libro libro = (Libro) em.createQuery(Constantes.OBTENER_LIBRO_POR_ISBN).setParameter("isbn", isbn).getSingleResult();
         desconectar();
         return libro;
 
     }
 
-    public List<Libro> obtenerLibrosPorEditorial(String editorial) {
-        //ToDo verificar query editorial
+    public List<Libro> obtenerLibrosPorEditorial(String nombre) {
         conectar();
-        List <Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_EDITORIAL).setParameter("EDITORIAL_id_editorial", editorial).getResultList();
+        List <Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_EDITORIAL).setParameter("nombre", nombre).getResultList();
         desconectar();
         return listaLibros;
 
     }
 
-    public List<Libro> obtenerLibrosPorAutor(String nombreAutor) {
-        //ToDo verificar query nombre autor
+    public List<Libro> obtenerLibrosPorAutor(String nombre) {
         conectar();
-        List<Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_AUTOR).setParameter("AUTOR_id_autor", nombreAutor).getResultList();
+        List<Libro> listaLibros = em.createQuery(Constantes.OBTENER_LIBRO_POR_AUTOR).setParameter("nombre", nombre).getResultList();
         desconectar();
         return listaLibros;
     }
     
-    public void EliminarLibroPorIsbn(Integer isbn) throws Exception{
+    public void EliminarLibroPorIsbn(String isbn) throws Exception{
         Libro libroBorrar = obtenerLibroPorISBN(isbn);
         if (isbn == null) {
             throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);

@@ -11,7 +11,7 @@ public class DAO<T> {
 
     protected void conectar() {
         if (!em.isOpen()) {
-            em.close();
+            em = EMF.createEntityManager();
         }
     }
 

@@ -9,11 +9,10 @@ public class AutorServicios {
 
     public final Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    private final AutorDAOExt DAO = new AutorDAOExt();
+    private final AutorDAOExt DAO;
 
-    public void ingresarAutor() throws Exception {
-        guardarAutor(crearAutor());
-        System.out.println(Constantes.AUTOR_ANADIDO);
+    public AutorServicios() {
+        this.DAO = new AutorDAOExt();
     }
 
     public Autor crearAutor() throws Exception {
@@ -24,16 +23,13 @@ public class AutorServicios {
             throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
         }
         autor.setNombre(nombre);
-        pedirAltaAutor(autor);
+        autor.setAlta(pedirAltaAutor());
         return autor;
     }
 
-    public void guardarAutor(Autor autor) {
-        DAO.guardar(autor);
-    }
-
-    public void contarAutores() {
-        System.out.println(DAO.contarAutores());
+    public void guardarAutor() throws Exception {
+        DAO.guardar(crearAutor());
+        System.out.println(Constantes.AUTOR_ANADIDO);
     }
 
     public void mostrarTodosLosAutores() {
@@ -43,8 +39,8 @@ public class AutorServicios {
     public void darAutorDeBaja() {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null ) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.DardeBajaAutor(id);
@@ -57,8 +53,8 @@ public class AutorServicios {
     public void darAutorDeAlta() {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeAltaAutor(id);
@@ -71,9 +67,9 @@ public class AutorServicios {
     public void modificarAutorPorID() {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
-            Integer id = leer.nextInt();
+            String id = leer.next();
 
-            if (id == null || id <= 0) {
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
 
@@ -82,10 +78,10 @@ public class AutorServicios {
             if (autor == null) {
                 throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
             }
-              
+
             System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
             autor.setNombre(leer.next());
-            pedirAltaAutor(autor);
+            autor.setAlta(pedirAltaAutor());
             DAO.editar(autor);
 
         } catch (Exception e) {
@@ -97,8 +93,8 @@ public class AutorServicios {
     public void mostrarAutorPorID() {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null ) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             Autor autor = DAO.obtenerAutorPorID(id);
@@ -133,9 +129,9 @@ public class AutorServicios {
         }
     }
 
-    public void pedirAltaAutor(Autor autor) {
+    public Boolean pedirAltaAutor() {
         System.out.println(Constantes.PREGUNTA_AUTOR_DISPONIBLE);
         String opc = leer.next().substring(0, 1);
-        autor.setAlta(opc.equalsIgnoreCase("S"));
+        return opc.equalsIgnoreCase("S") ? Boolean.TRUE : Boolean.FALSE;
     }
 }

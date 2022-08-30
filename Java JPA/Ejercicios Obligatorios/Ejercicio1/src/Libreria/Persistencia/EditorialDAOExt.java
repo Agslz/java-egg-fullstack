@@ -6,10 +6,6 @@ import java.util.List;
 
 public class EditorialDAOExt extends DAO<Editorial> {
 
-    public Integer contarEditoriales() {
-        return em.createQuery(Constantes.CONTAR_EDITORIALES).getFirstResult();
-    }
-
     public List<Editorial> mostrarTodasLasEditoriales() {
         conectar();
         List<Editorial> listaEditoriales = em.createQuery(Constantes.OBTENER_TODAS_LAS_EDITORIALES).getResultList();
@@ -17,24 +13,24 @@ public class EditorialDAOExt extends DAO<Editorial> {
         return listaEditoriales;
     }
 
-    public Editorial obtenerEditorialPorID(Integer id) {
+    public Editorial obtenerEditorialPorID(String id) {
         conectar();
-        Editorial editorial = (Editorial) em.createQuery(Constantes.OBTENER_EDITORIAL_POR_ID).setParameter("id", id).getResultList();
+        Editorial editorial = (Editorial) em.createQuery(Constantes.OBTENER_EDITORIAL_POR_ID).setParameter("id", id).getSingleResult();
         desconectar();
         return editorial;
     }
 
     public Editorial obtenerEditorialPorNombre(String nombre) {
         conectar();
-        Editorial editorial = (Editorial) em.createQuery(Constantes.OBTENER_EDITORIAL_POR_NOMBRE).setParameter("nombre", nombre).getResultList();
+        Editorial editorial = (Editorial) em.createQuery(Constantes.OBTENER_EDITORIAL_POR_NOMBRE).setParameter("nombre", nombre).getSingleResult();
         desconectar();
         return editorial;
 
     }
 
-    public void darDeBajaEditorial(Integer id) throws Exception {
+    public void darDeBajaEditorial(String id) throws Exception {
 
-        if (id == null || id <= 0) {
+        if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
 
@@ -51,9 +47,9 @@ public class EditorialDAOExt extends DAO<Editorial> {
 
     }
 
-    public void darDeAltaEditorial(Integer id) throws Exception {
+    public void darDeAltaEditorial(String id) throws Exception {
 
-        if (id == null || id <= 0) {
+        if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
 

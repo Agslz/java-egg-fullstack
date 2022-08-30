@@ -11,11 +11,6 @@ public class EditorialServicios {
 
     private final EditorialDAOExt DAO = new EditorialDAOExt();
 
-    public void ingresarEditorial() throws Exception {
-        DAO.guardar(crearEditorial());
-        System.out.println(Constantes.EDITORIAL_ANADIDA);
-    }
-
     public Editorial crearEditorial() throws Exception {
         Editorial editorial = new Editorial();
         System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
@@ -28,12 +23,9 @@ public class EditorialServicios {
         return editorial;
     }
 
-    public void guardarEditorial(Editorial editorial) {
-        DAO.guardar(editorial);
-    }
-
-    public void contarEditoriales() {
-        System.out.println(DAO.contarEditoriales());
+    public void guardarEditorial() throws Exception {
+        DAO.guardar(crearEditorial());
+        System.out.println(Constantes.EDITORIAL_ANADIDA);
     }
 
     public void mostrarTodasEditoriales() {
@@ -43,8 +35,8 @@ public class EditorialServicios {
     public void DarEditorialDeBaja() {
         try {
             System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeBajaEditorial(id);
@@ -57,8 +49,8 @@ public class EditorialServicios {
     public void DarEditorialDeAlta() {
         try {
             System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null ) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeAltaEditorial(id);
@@ -71,9 +63,9 @@ public class EditorialServicios {
     public void modificarEditorialPorID() {
         try {
             System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            Integer id = leer.nextInt();
+            String id = leer.next();
             
-            if (id == null || id <= 0) {
+            if (id == null ) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             
@@ -96,8 +88,8 @@ public class EditorialServicios {
     public void mostrarEditorialPorId() {
         try {
             System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            Integer id = leer.nextInt();
-            if (id == null || id <= 0) {
+            String id = leer.next();
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             Editorial editorial = DAO.obtenerEditorialPorID(id);

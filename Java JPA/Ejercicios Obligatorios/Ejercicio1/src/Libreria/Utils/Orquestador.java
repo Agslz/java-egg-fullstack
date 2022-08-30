@@ -58,7 +58,7 @@ public class Orquestador {
 
             switch (opc) {
                 case 1:
-                    autorServicios.crearAutor();
+                    autorServicios.guardarAutor();
                     break;
                 case 2:
                     autorServicios.mostrarTodosLosAutores();
@@ -103,7 +103,7 @@ public class Orquestador {
 
             switch (opc) {
                 case 1:
-                    libroServicios.crearLibro();
+                    libroServicios.guardarLibro();
                     break;
                 case 2:
                     libroServicios.mostrarTodosLosLibros();
@@ -151,7 +151,7 @@ public class Orquestador {
 
             switch (opc) {
                 case 1:
-                    editorialServicios.crearEditorial();
+                    editorialServicios.guardarEditorial();
                     break;
                 case 2:
                     editorialServicios.mostrarTodasEditoriales();

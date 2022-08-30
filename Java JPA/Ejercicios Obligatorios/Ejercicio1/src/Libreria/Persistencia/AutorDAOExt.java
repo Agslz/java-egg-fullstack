@@ -4,11 +4,7 @@ import Libreria.Entidades.Autor;
 import Libreria.Constantes.Constantes;
 import java.util.List;
 
-public class AutorDAOExt extends DAO<Autor> {
-
-    public Integer contarAutores() {
-        return em.createQuery(Constantes.CONTAR_AUTORES).getFirstResult();
-    }
+public final class AutorDAOExt extends DAO<Autor> {
 
     public List<Autor> mostrarTodosLosAutores() {
         conectar();
@@ -17,12 +13,12 @@ public class AutorDAOExt extends DAO<Autor> {
         return listaAutores;
     }
 
-    public Autor obtenerAutorPorID(Integer id) throws Exception {
-        if (id == null || id <= 0) {
+    public Autor obtenerAutorPorID(String id) throws Exception {
+        if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
         conectar();
-        Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_ID).setParameter("id", id).getResultList();
+        Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_ID).setParameter("id", id).getSingleResult();
         desconectar();
         return autor;
     }
@@ -32,14 +28,14 @@ public class AutorDAOExt extends DAO<Autor> {
             throw new Exception(Constantes.NOMBRE_INVALIDO);
         }
         conectar();
-        Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_NOMBRE).setParameter("nombre", nombre).getResultList();
+        Autor autor = (Autor) em.createQuery(Constantes.OBTENER_AUTOR_POR_NOMBRE).setParameter("nombre", nombre).getSingleResult();
         desconectar();
         return autor;
     }
 
-    public void DardeBajaAutor(Integer id) throws Exception {
+    public void DardeBajaAutor(String id) throws Exception {
 
-        if (id == null || id <= 0) {
+        if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
 
@@ -54,8 +50,8 @@ public class AutorDAOExt extends DAO<Autor> {
         super.editar(autorBaja);
     }
 
-    public void darDeAltaAutor(Integer id) throws Exception {
-        if (id == null || id <= 0) {
+    public void darDeAltaAutor(String id) throws Exception {
+        if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
 
