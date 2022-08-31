@@ -28,7 +28,7 @@ public class EditorialDAOExt extends DAO<Editorial> {
 
     }
 
-    public void darDeBajaEditorial(String id) throws Exception {
+    public String darDeBajaEditorial(String id) throws Exception {
 
         if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
@@ -40,14 +40,13 @@ public class EditorialDAOExt extends DAO<Editorial> {
             throw new Exception(Constantes.EDITORIAL_NO_DISPONIBLE);
         }
 
-        System.out.println(Constantes.BAJA_EDITORIAL_EXITOSA);
-
         editorialBaja.setAlta(false);
         super.editar(editorialBaja);
+        return Constantes.BAJA_EDITORIAL_EXITOSA;
 
     }
 
-    public void darDeAltaEditorial(String id) throws Exception {
+    public String darDeAltaEditorial(String id) throws Exception {
 
         if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
@@ -59,10 +58,9 @@ public class EditorialDAOExt extends DAO<Editorial> {
             throw new Exception(Constantes.EDITORIAL_DISPONIBLE);
         }
 
-        System.out.println(Constantes.ALTA_EDITORIAL_EXITOSA);
-
         editorialAlta.setAlta(true);
         super.editar(editorialAlta);
+        return Constantes.ALTA_EDITORIAL_EXITOSA;
     }
 
     @Override

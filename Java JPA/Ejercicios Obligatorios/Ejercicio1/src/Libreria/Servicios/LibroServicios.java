@@ -16,13 +16,13 @@ public class LibroServicios {
     private final AutorDAOExt autorDAO = new AutorDAOExt();
     private final EditorialDAOExt editorialDAO = new EditorialDAOExt();
 
-    public void mostrarTodosLosLibros() {
-        DAO.obtenerTodosLosLibros().forEach(System.out::println);
+    public List<Libro> mostrarTodosLosLibros() {
+        return DAO.obtenerTodosLosLibros();
     }
 
-    public void guardarLibro() throws Exception {
+    public String guardarLibro() throws Exception {
         DAO.guardar(crearLibro());
-        System.out.println(Constantes.LIBRO_ANADIDO);
+        return Constantes.LIBRO_ANADIDO;
     }
 
     public Libro crearLibro() throws Exception {
@@ -45,52 +45,42 @@ public class LibroServicios {
         libro.setEjemplaresPrestados(0);
         libro.setAlta(Boolean.TRUE);
 
-        Autor autor = pedirAutor();
+        System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
+        Autor autor = pedirAutor(leer.next());
         libro.setAutor(autor);
 
-        Editorial editorial = pedirEditorial();
+        System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
+        Editorial editorial = pedirEditorial(leer.next());
         libro.setEditorial(editorial);
 
         return libro;
     }
 
-    private Autor pedirAutor() throws Exception {
-        Autor autor;
-        String nombre;
-
+    private Autor pedirAutor(String nombre) throws Exception {
         try {
+            Autor autor;
             do {
-                System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-                nombre = leer.next();
                 autor = autorDAO.obtenerAutorPorNombre(nombre);
                 if (autor == null) {
                     throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
                 }
             } while (autor == null);
             return autor;
-
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
-            return null;
+            throw e;
         }
-
     }
 
-    private Editorial pedirEditorial() throws Exception {
+    private Editorial pedirEditorial(String nombre) throws Exception {
         try {
             Editorial editorial;
-            String nombre;
             do {
-                System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-                nombre = leer.next();
                 editorial = editorialDAO.obtenerEditorialPorNombre(nombre);
                 if (editorial == null) {
                     throw new Exception(Constantes.EDITORIAL_NO_ENCONTADA);
                 }
             } while (editorial == null);
             return editorial;
-
         } catch (Exception e) {
             System.out.println(Constantes.ERROR);
             System.out.println(e.toString());
@@ -98,35 +88,23 @@ public class LibroServicios {
         }
     }
 
-    public void mostrarLibroPorIsbn() {
+    public Libro mostrarLibroPorIsbn(String isbn) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_ISBN);
-            String isbn = leer.next();
-
             if (isbn == null) {
                 throw new Exception(Constantes.ISBN_INVALIDO);
             }
-
             Libro libro = DAO.obtenerLibroPorISBN(isbn);
-
             if (libro == null) {
                 throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);
             }
-
-            System.out.println(libro);
-
+            return libro;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
-
     }
 
-    public void mostrarLibroPorTitulo() {
+    public Libro mostrarLibroPorTitulo(String titulo) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_TITULO);
-            String titulo = leer.next();
-
             if (titulo == null || titulo.trim().isEmpty()) {
                 throw new Exception(Constantes.TITULO_LIBRO_INVALIDO);
             }
@@ -135,94 +113,68 @@ public class LibroServicios {
             if (libro == null) {
                 throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);
             }
-            System.out.println(libro);
-
+            return libro;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void mostrarLibrosDeUnAutor() {
+    public List<Libro> mostrarLibrosDeUnAutor(String nombre) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-            String nombre = leer.next();
             if (nombre == null || nombre.trim().isEmpty()) {
                 throw new Exception(Constantes.NOMBRE_INVALIDO);
             }
-            List<Libro> listaLibros = DAO.obtenerLibrosPorAutor(nombre);
-            listaLibros.forEach(System.out::println);
+            return DAO.obtenerLibrosPorAutor(nombre);
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
-
     }
 
-    public void mostrarLibrosDeUnaEditorial() {
+    public List<Libro> mostrarLibrosDeUnaEditorial(String nombre) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-            String nombre = leer.next();
             if (nombre == null || nombre.trim().isEmpty()) {
                 throw new Exception(Constantes.NOMBRE_INVALIDO);
             }
-            List<Libro> listaLibros = DAO.obtenerLibrosPorEditorial(nombre);
-            listaLibros.forEach(System.out::println);
+            return DAO.obtenerLibrosPorEditorial(nombre);
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void darLibro() throws Exception {
+    public String darLibro(String titulo) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_TITULO);
-            String titulo = leer.next();
-
-            Libro libro = DAO.obtenerLibroPorTitulo(titulo);
-
+            Libro libro = mostrarLibroPorTitulo(titulo);
             if (libro == null || titulo.trim().isEmpty()) {
                 throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);
             }
-
             if (libro.getEjemplaresRestantes() == 0) {
                 throw new Exception(Constantes.LIBROS_AGOTADOS);
             }
-
             libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() - 1);
             libro.setEjemplaresPrestados(libro.getEjemplaresPrestados() + 1);
-            System.out.println(Constantes.LIBRO_PRESTADO);
             DAO.editar(libro);
-
+            return Constantes.LIBRO_PRESTADO;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void devolverLibro() throws Exception {
+    public String devolverLibro(String titulo) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_TITULO);
-            String titulo = leer.next();
-
-            Libro libro = DAO.obtenerLibroPorTitulo(titulo);
-
+            Libro libro = mostrarLibroPorTitulo(titulo);
             if (libro == null || titulo.trim().isEmpty()) {
                 throw new Exception(Constantes.LIBRO_NO_ENCONTRADO);
             }
-
             if (libro.getEjemplaresPrestados() == 0) {
                 throw new Exception(Constantes.LIBROS_LLENOS);
             }
-
             libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() + 1);
             libro.setEjemplaresPrestados(libro.getEjemplaresPrestados() - 1);
-            System.out.println(Constantes.LIBRO_DEVUELTO);
             DAO.editar(libro);
-            
+            return Constantes.LIBRO_DEVUELTO;
+
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 }

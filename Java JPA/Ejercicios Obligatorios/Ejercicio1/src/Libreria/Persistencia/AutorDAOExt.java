@@ -33,7 +33,7 @@ public final class AutorDAOExt extends DAO<Autor> {
         return autor;
     }
 
-    public void DardeBajaAutor(String id) throws Exception {
+    public String DardeBajaAutor(String id) throws Exception {
 
         if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
@@ -45,12 +45,12 @@ public final class AutorDAOExt extends DAO<Autor> {
             throw new Exception(Constantes.AUTOR_NO_DISPONIBLE);
         }
 
-        System.out.println(Constantes.BAJA_AUTOR_EXITOSA);
         autorBaja.setAlta(false);
         super.editar(autorBaja);
+        return Constantes.BAJA_AUTOR_EXITOSA;
     }
 
-    public void darDeAltaAutor(String id) throws Exception {
+    public String darDeAltaAutor(String id) throws Exception {
         if (id == null) {
             throw new Exception(Constantes.ID_INVALIDO);
         }
@@ -61,10 +61,9 @@ public final class AutorDAOExt extends DAO<Autor> {
             throw new Exception(Constantes.AUTOR_DISPONIBLE);
         }
 
-        System.out.println(Constantes.ALTA_AUTOR_EXITOSA);
         autorAlta.setAlta(true);
         super.editar(autorAlta);
-
+        return Constantes.ALTA_AUTOR_EXITOSA;
     }
 
     @Override

@@ -40,7 +40,7 @@ public class Orquestador {
             }
 
         } while (opc != 4);
-                    System.out.println(Constantes.SALIDA);
+        System.out.println(Constantes.SALIDA);
 
     }
 
@@ -58,25 +58,29 @@ public class Orquestador {
 
             switch (opc) {
                 case 1:
+                    System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
                     autorServicios.guardarAutor();
                     break;
                 case 2:
-                    autorServicios.mostrarTodosLosAutores();
+                    autorServicios.mostrarTodosLosAutores().forEach(System.out::println);
                     break;
                 case 3:
-                    autorServicios.mostrarAutorPorID();
+                    System.out.println(Constantes.INGRESE_AUTOR_ID);
+                    System.out.println(autorServicios.mostrarAutorPorID(leer.next()));
                     break;
                 case 4:
-                    autorServicios.mostrarAutorPorNombre();
+                    System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
+                    System.out.println(autorServicios.mostrarAutorPorNombre(leer.next()));
                     break;
                 case 5:
-                    autorServicios.modificarAutorPorID();
+                    System.out.println(Constantes.INGRESE_AUTOR_ID);
+                    System.out.println(autorServicios.modificarAutorPorID(leer.next()));
                     break;
                 case 6:
-                    autorServicios.darAutorDeAlta();
+                    System.out.println(autorServicios.darAutorDeAlta());
                     break;
                 case 7:
-                    autorServicios.darAutorDeBaja();
+                    System.out.println(autorServicios.darAutorDeBaja());
                     break;
                 case 8:
                     menuprincipal();
@@ -106,25 +110,31 @@ public class Orquestador {
                     libroServicios.guardarLibro();
                     break;
                 case 2:
-                    libroServicios.mostrarTodosLosLibros();
+                    libroServicios.mostrarTodosLosLibros().forEach(System.out::println);
                     break;
                 case 3:
-                    libroServicios.mostrarLibroPorIsbn();
+                    System.out.println(Constantes.INGRESE_ISBN);
+                    System.out.println(libroServicios.mostrarLibroPorIsbn(leer.next()));
                     break;
                 case 4:
-                    libroServicios.mostrarLibroPorTitulo();
+                    System.out.println(Constantes.INGRESE_TITULO);
+                    System.out.println(libroServicios.mostrarLibroPorTitulo(leer.next()));
                     break;
                 case 5:
-                    libroServicios.mostrarLibrosDeUnAutor();
+                    System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
+                    libroServicios.mostrarLibrosDeUnAutor(leer.next()).forEach(System.out::println);
                     break;
                 case 6:
-                    libroServicios.mostrarLibrosDeUnaEditorial();
+                    System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
+                    libroServicios.mostrarLibrosDeUnaEditorial(leer.next()).forEach(System.out::println);
                     break;
                 case 7:
-                    libroServicios.darLibro();
+                    System.out.println(Constantes.INGRESE_TITULO);
+                    System.out.println(libroServicios.darLibro(leer.next()));
                     break;
                 case 8:
-                    libroServicios.devolverLibro();
+                    System.out.println(Constantes.INGRESE_TITULO);
+                    System.out.println(libroServicios.devolverLibro(leer.next()));
                     break;
                 case 9:
                     menuprincipal();
@@ -151,25 +161,31 @@ public class Orquestador {
 
             switch (opc) {
                 case 1:
+                    System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
                     editorialServicios.guardarEditorial();
                     break;
                 case 2:
-                    editorialServicios.mostrarTodasEditoriales();
+                    editorialServicios.mostrarTodasEditoriales().forEach(System.out::println);
                     break;
                 case 3:
-                    editorialServicios.mostrarEditorialPorId();
+                    System.out.println(Constantes.INGRESE_EDITORIAL_ID);
+                    System.out.println(editorialServicios.mostrarEditorialPorId(leer.next()));
                     break;
                 case 4:
-                    editorialServicios.mostrarEditorialPorNombre();
+                    System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
+                    System.out.println(editorialServicios.mostrarEditorialPorNombre(leer.next()));
                     break;
                 case 5:
-                    editorialServicios.modificarEditorialPorID();
+                    System.out.println(Constantes.INGRESE_EDITORIAL_ID);
+                    editorialServicios.modificarEditorialPorID(leer.next());
                     break;
                 case 6:
-                    editorialServicios.DarEditorialDeAlta();
+                    System.out.println(Constantes.INGRESE_EDITORIAL_ID);
+                    System.out.println(editorialServicios.DarEditorialDeAlta(leer.next()));
                     break;
                 case 7:
-                    editorialServicios.DarEditorialDeBaja();
+                    System.out.println(Constantes.INGRESE_EDITORIAL_ID);
+                    System.out.println(editorialServicios.DarEditorialDeBaja(leer.next()));
                     break;
                 case 8:
                     menuprincipal();

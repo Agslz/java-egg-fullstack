@@ -3,22 +3,17 @@ package Libreria.Servicios;
 import Libreria.Persistencia.AutorDAOExt;
 import Libreria.Constantes.Constantes;
 import Libreria.Entidades.Autor;
+import java.util.List;
 import java.util.Scanner;
 
 public class AutorServicios {
 
     public final Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    private final AutorDAOExt DAO;
+    private final AutorDAOExt DAO = new AutorDAOExt();
 
-    public AutorServicios() {
-        this.DAO = new AutorDAOExt();
-    }
-
-    public Autor crearAutor() throws Exception {
+    public Autor crearAutor(String nombre) throws Exception {
         Autor autor = new Autor();
-        System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-        String nombre = leer.next();
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
         }
@@ -27,30 +22,30 @@ public class AutorServicios {
         return autor;
     }
 
-    public void guardarAutor() throws Exception {
-        DAO.guardar(crearAutor());
-        System.out.println(Constantes.AUTOR_ANADIDO);
+    public String guardarAutor() throws Exception {
+        DAO.guardar(crearAutor(leer.next()));
+        return Constantes.AUTOR_ANADIDO;
     }
 
-    public void mostrarTodosLosAutores() {
-        DAO.mostrarTodosLosAutores().forEach(System.out::println);
+    public List<Autor> mostrarTodosLosAutores() {
+        return DAO.mostrarTodosLosAutores();
     }
 
-    public void darAutorDeBaja() {
+    public String darAutorDeBaja() throws Exception {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
             String id = leer.next();
-            if (id == null ) {
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.DardeBajaAutor(id);
+            return Constantes.BAJA_AUTOR_EXITOSA;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void darAutorDeAlta() {
+    public String darAutorDeAlta() throws Exception {
         try {
             System.out.println(Constantes.INGRESE_AUTOR_ID);
             String id = leer.next();
@@ -58,17 +53,14 @@ public class AutorServicios {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeAltaAutor(id);
+            return Constantes.ALTA_AUTOR_EXITOSA;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void modificarAutorPorID() {
+    public String modificarAutorPorID(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_AUTOR_ID);
-            String id = leer.next();
-
             if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
@@ -83,50 +75,41 @@ public class AutorServicios {
             autor.setNombre(leer.next());
             autor.setAlta(pedirAltaAutor());
             DAO.editar(autor);
-
+            return Constantes.AUTOR_MODIFICADO;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void mostrarAutorPorID() {
+    public Autor mostrarAutorPorID(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_AUTOR_ID);
-            String id = leer.next();
-            if (id == null ) {
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             Autor autor = DAO.obtenerAutorPorID(id);
             if (autor == null) {
                 throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
             }
-            System.out.println(autor);
+            return autor;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void mostrarAutorPorNombre() {
+    public Autor mostrarAutorPorNombre(String nombre) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-            String nombre = leer.next();
-
             if (nombre == null || nombre.trim().isEmpty()) {
                 throw new Exception(Constantes.NOMBRE_INVALIDO);
             }
-
             Autor autor = DAO.obtenerAutorPorNombre(nombre);
-
             if (autor == null) {
                 throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
             }
-            System.out.println(autor);
+            return autor;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
+
     }
 
     public Boolean pedirAltaAutor() {

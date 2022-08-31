@@ -3,6 +3,7 @@ package Libreria.Servicios;
 import Libreria.Constantes.Constantes;
 import Libreria.Entidades.Editorial;
 import Libreria.Persistencia.EditorialDAOExt;
+import java.util.List;
 import java.util.Scanner;
 
 public class EditorialServicios {
@@ -11,10 +12,8 @@ public class EditorialServicios {
 
     private final EditorialDAOExt DAO = new EditorialDAOExt();
 
-    public Editorial crearEditorial() throws Exception {
+    public Editorial crearEditorial(String nombre) throws Exception {
         Editorial editorial = new Editorial();
-        System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-        String nombre = leer.next();
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new Exception(Constantes.NOMBRE_INVALIDO);
         }
@@ -23,72 +22,62 @@ public class EditorialServicios {
         return editorial;
     }
 
-    public void guardarEditorial() throws Exception {
-        DAO.guardar(crearEditorial());
-        System.out.println(Constantes.EDITORIAL_ANADIDA);
+    public String guardarEditorial() throws Exception {
+        DAO.guardar(crearEditorial(leer.next()));
+        return Constantes.EDITORIAL_ANADIDA;
     }
 
-    public void mostrarTodasEditoriales() {
-        DAO.mostrarTodasLasEditoriales().forEach(System.out::println);
+    public List<Editorial> mostrarTodasEditoriales() {
+        return DAO.mostrarTodasLasEditoriales();
     }
 
-    public void DarEditorialDeBaja() {
+    public String DarEditorialDeBaja(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            String id = leer.next();
             if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeBajaEditorial(id);
+            return Constantes.BAJA_EDITORIAL_EXITOSA;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void DarEditorialDeAlta() {
+    public String DarEditorialDeAlta(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            String id = leer.next();
-            if (id == null ) {
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
             DAO.darDeAltaEditorial(id);
+            return Constantes.ALTA_EDITORIAL_EXITOSA;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void modificarEditorialPorID() {
+    public Editorial modificarEditorialPorID(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            String id = leer.next();
-            
-            if (id == null ) {
+            if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
-            
-            Editorial editorial = DAO.obtenerEditorialPorID(id);
-            
+
+            Editorial editorial = mostrarEditorialPorId(id);
+
             if (editorial == null) {
                 throw new Exception(Constantes.EDITORIAL_NO_ENCONTADA);
             }
-            
             System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
             editorial.setNombre(leer.next());
             pedirAltaEditorial(editorial);
             DAO.editar(editorial);
+            return editorial;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void mostrarEditorialPorId() {
+    public Editorial mostrarEditorialPorId(String id) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_EDITORIAL_ID);
-            String id = leer.next();
             if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
             }
@@ -96,17 +85,14 @@ public class EditorialServicios {
             if (editorial == null) {
                 throw new Exception(Constantes.EDITORIAL_NO_ENCONTADA);
             }
-            System.out.println(editorial);
+            return editorial;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
-    public void mostrarEditorialPorNombre() {
+    public Editorial mostrarEditorialPorNombre(String nombre) throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-            String nombre = leer.next();
             if (nombre == null || nombre.trim().isEmpty()) {
                 throw new Exception(Constantes.NOMBRE_INVALIDO);
             }
@@ -114,11 +100,9 @@ public class EditorialServicios {
             if (editorial == null) {
                 throw new Exception(Constantes.EDITORIAL_NO_ENCONTADA);
             }
-            System.out.println(editorial);
-
+            return editorial;
         } catch (Exception e) {
-            System.out.println(Constantes.ERROR);
-            System.out.println(e.toString());
+            throw e;
         }
     }
 
