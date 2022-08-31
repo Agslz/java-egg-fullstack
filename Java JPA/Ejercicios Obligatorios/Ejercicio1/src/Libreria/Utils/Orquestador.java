@@ -77,9 +77,11 @@ public class Orquestador {
                     System.out.println(autorServicios.modificarAutorPorID(leer.next()));
                     break;
                 case 6:
+                    System.out.println(Constantes.INGRESE_AUTOR_ID);
                     System.out.println(autorServicios.darAutorDeAlta());
                     break;
                 case 7:
+                    System.out.println(Constantes.INGRESE_AUTOR_ID);
                     System.out.println(autorServicios.darAutorDeBaja());
                     break;
                 case 8:
