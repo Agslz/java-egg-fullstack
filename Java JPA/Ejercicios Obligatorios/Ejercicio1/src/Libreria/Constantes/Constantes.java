@@ -37,6 +37,7 @@ public class Constantes {
     public static final String LIBRO_PRESTADO = "Libro prestado con exito!";
     public static final String LIBROS_LLENOS = "Error. Capacidad de libros a devolver alcanzada";
     public static final String LIBRO_DEVUELTO = "Libro devuelto con exito";
+    public static final String AUTOR_MODIFICADO = "Autor modificado exitosamente";
     //-------------------------------------------------------------OPCIONES MENU-------------------------------------------------------------
     public static final String INGRESE_OPCION = "Ingrese una opción";
     public static final String SALIDA = "Usted salió del sistema";
