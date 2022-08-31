@@ -33,7 +33,6 @@ public class AutorServicios {
 
     public String darAutorDeBaja() throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_AUTOR_ID);
             String id = leer.next();
             if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
@@ -47,7 +46,6 @@ public class AutorServicios {
 
     public String darAutorDeAlta() throws Exception {
         try {
-            System.out.println(Constantes.INGRESE_AUTOR_ID);
             String id = leer.next();
             if (id == null) {
                 throw new Exception(Constantes.ID_INVALIDO);
