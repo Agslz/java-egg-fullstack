@@ -38,7 +38,7 @@ public class Libro implements Serializable {
 
     @OneToOne
     private Editorial editorial;
-    
+
     public Libro() {
     }
 
@@ -50,6 +50,15 @@ public class Libro implements Serializable {
         this.ejemplaresPrestados = ejemplaresPrestados;
         this.ejemplaresRestantes = ejemplaresRestantes;
         this.alta = alta;
+        this.autor = autor;
+        this.editorial = editorial;
+    }
+
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Autor autor, Editorial editorial) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.anio = anio;
+        this.ejemplares = ejemplares;
         this.autor = autor;
         this.editorial = editorial;
     }

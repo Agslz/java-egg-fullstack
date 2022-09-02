@@ -32,6 +32,11 @@ public class Editorial implements Serializable {
         this.alta = alta;
     }
 
+    public Editorial(String nombre, Boolean alta) {
+        this.nombre = nombre;
+        this.alta = alta;
+    }
+
     public Integer getId() {
         return id;
     }
