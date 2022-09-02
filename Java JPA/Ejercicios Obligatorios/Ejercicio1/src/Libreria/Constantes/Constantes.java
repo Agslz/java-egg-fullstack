@@ -38,11 +38,26 @@ public class Constantes {
     public static final String LIBROS_LLENOS = "Error. Capacidad de libros a devolver alcanzada";
     public static final String LIBRO_DEVUELTO = "Libro devuelto con exito";
     public static final String AUTOR_MODIFICADO = "Autor modificado exitosamente";
+    public static final String CLIENTE_ANADIDO = "Cliente añadido correctamente";
+    public static final String CLIENTE_NO_ENCONTRADO = "No se encontró al cliente";
+    public static final String CLIENTE_ELIMINADO = "Cliente eliminado con exito";
+    public static final String CLIENTE_MODIFICADO = "Cliente modificado con exito";
+    public static final String INGRESE_NOMBRE_CLIENTE = "Ingrese el nombre del cliente";
+    public static final String INGRESE_ID_CLIENTE = "Ingrese la ID del cliente";
+    public static final String INGRESE_ID_CLIENTE_ELIMINAR = "Ingrese la ID del cliente a eliminar";
+    public static final String INGRESE_APELLIDO_CLIENTE = "Ingrese el apellido del cliente";
+    public static final String INGRESE_TELEFONO_CLIENTE = "Ingrese el telefono del cliente";
+    public static final String INGRESE_DOCUMENTO_CLIENTE = "Ingrese el documento del cliente";
     //-------------------------------------------------------------OPCIONES MENU-------------------------------------------------------------
     public static final String INGRESE_OPCION = "Ingrese una opción";
     public static final String SALIDA = "Usted salió del sistema";
     public static final String OPCION_INCORRECTA = "La opción ingresada es incorrecta";
     public static final String VOLVER_MENU_PRINCIPAL = "Volver al menu principal";
+    //-------------------------------------------------------------QUERYS CLIENTE----------------------------------------------------------
+    public static final String OBTENER_TODOS_LOS_CLIENTES = "SELECT c FROM Cliente c";
+    public static final String OBTENER_CLIENTE_POR_ID = "SELECT c FROM Cliente c WHERE c.id LIKE :id";
+    public static final String OBTENER_CLIENTE_POR_NOMBRE = "SELECT c FROM Cliente c WHERE c.nombre LIKE :nombre";
+    //-------------------------------------------------------------QUERYS PRESTAMO----------------------------------------------------------
     //-------------------------------------------------------------QUERYS EDITORIAL----------------------------------------------------------
     public static final String OBTENER_TODAS_LAS_EDITORIALES = "SELECT e FROM Editorial e WHERE e.alta = true";
     public static final String OBTENER_EDITORIAL_POR_ID = "SELECT e FROM Editorial e WHERE e.id LIKE :id";
@@ -62,7 +77,9 @@ public class Constantes {
             + "\n1. Ir al Menu de Autor"
             + "\n2. Ir al Menu de Libro"
             + "\n3. Ir al Menu de Editorial"
-            + "\n4. Salir ";
+            + "\n4. Ir al Menu de Cliente"
+            + "\n5. Ir al Menu de Prestamos"
+            + "\n6. Salir ";
 
     public static final String OPCIONES_MENU_AUTOR = "\nOpciones Disponibles"
             + "\n1.Crear un nuevo autor"
@@ -86,6 +103,24 @@ public class Constantes {
             + "\n9.Volver al menu principal";
 
     public static final String OPCIONES_MENU_EDITORIAL = "\nOpciones Disponibles"
+            + "\n1.Crear una editorial"
+            + "\n2.Mostrar todas las editoriales"
+            + "\n3.Buscar una editorial usando su ID"
+            + "\n4.Buscar una editorial usando su nombre"
+            + "\n5.Modificar una editorial usando su ID"
+            + "\n6.Dar de alta una editorial"
+            + "\n7.Dar de baja una editorial"
+            + "\n8.Volver al menu principal";
+
+    public static final String OPCIONES_MENU_CLIENTE = "\nOpciones Disponibles"
+            + "\n1.Ingresar un cliente"
+            + "\n2.Mostrar todos los clientes"
+            + "\n3.Buscar un cliente usando su nombre"
+            + "\n4.Buscar un cliente usando su ID"
+            + "\n5.Modificar un cliente usando su ID"
+            + "\n6.Volver al menu principal";
+
+    public static final String OPCIONES_MENU_PRESTAMO = "\nOpciones Disponibles"
             + "\n1.Crear una editorial"
             + "\n2.Mostrar todas las editoriales"
             + "\n3.Buscar una editorial usando su ID"
