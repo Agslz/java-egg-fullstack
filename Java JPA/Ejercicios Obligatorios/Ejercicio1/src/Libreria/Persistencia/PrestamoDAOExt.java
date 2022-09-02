@@ -1,13 +1,40 @@
 package Libreria.Persistencia;
 
+import Libreria.Constantes.Constantes;
 import Libreria.Entidades.Prestamo;
+import java.util.List;
 
-public class PrestamoDAOExt extends DAO<Prestamo>{
+public class PrestamoDAOExt extends DAO<Prestamo> {
 
-//La entidad préstamo modela los datos de un préstamo de un libro. Esta entidad registra
-//la fecha en la que se efectuó el préstamo y la fecha en la que se devolvió el libro. Esta
-//entidad también registra el libro que se llevo en dicho préstamo y quien fue el cliente al
-//cual se le prestaron.
-    
-//ToDo crear prestamo, registrar un prestamo deun libro, busqueda de todos los prestamos de un cliente
+    public Prestamo buscarPrestamosPorDNICliente(String DNI) {
+        conectar();
+        Prestamo prestamo = (Prestamo) em.createQuery(Constantes.OBTENER_PRESTAMO_POR_DNI).setParameter("DNI", DNI).getSingleResult();
+        desconectar();
+        return prestamo;
+    }
+
+    public Prestamo buscarPorNombreDeLibro(String titulo) {
+        conectar();
+        Prestamo prestamo = (Prestamo) em.createQuery(Constantes.OBTENER_PRESTAMO_POR_NOMBRE_LIBRO).setParameter("titulo", titulo).getSingleResult();
+        desconectar();
+        return prestamo;
+    }
+
+    public List<Prestamo> mostrarTodosLosPrestamos() {
+        conectar();
+        List<Prestamo> listaPrestamos = em.createQuery(Constantes.OBTENER_TODOS_LOS_PRESTAMOS).getResultList();
+        desconectar();
+        return listaPrestamos;
+    }
+
+    @Override
+    public void guardar(Prestamo prestamo) {
+        super.guardar(prestamo);
+    }
+
+    @Override
+    public void editar(Prestamo prestamo) {
+        super.editar(prestamo);
+    }
+
 }

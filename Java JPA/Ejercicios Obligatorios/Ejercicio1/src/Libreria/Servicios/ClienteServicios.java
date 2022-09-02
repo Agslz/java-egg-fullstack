@@ -71,4 +71,18 @@ public class ClienteServicios {
         }
     }
 
+    public Cliente mostrarClientePorDNI(String dni) throws Exception {
+        try {
+            if (dni == null ) {
+                throw new Exception(Constantes.DNI_INVALIDO);
+            }
+            Cliente cliente = DAO.obtenerClientePorDNI(dni);
+            if (cliente == null) {
+                throw new Exception(Constantes.CLIENTE_NO_ENCONTRADO);
+            }
+            return cliente;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

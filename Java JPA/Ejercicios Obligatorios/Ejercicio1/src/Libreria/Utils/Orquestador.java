@@ -27,12 +27,12 @@ public class Orquestador {
     public static String id;
     public static Long isbn;
     public static Long dni;
+    public static String dni2;
     public static Integer anio;
     public static Integer copias;
+    public static Integer opc;
 
     public static void menuprincipal() throws Exception {
-
-        int opc;
 
         do {
 
@@ -68,8 +68,6 @@ public class Orquestador {
     }
 
     public static void menuAutor() throws Exception {
-
-        int opc;
 
         do {
 
@@ -120,8 +118,6 @@ public class Orquestador {
     }
 
     public static void menuLibro() throws Exception {
-
-        int opc;
 
         do {
 
@@ -187,8 +183,6 @@ public class Orquestador {
 
     public static void menuEditorial() throws Exception {
 
-        int opc;
-
         do {
 
             System.out.println(Constantes.OPCIONES_MENU_EDITORIAL);
@@ -238,8 +232,6 @@ public class Orquestador {
     }
 
     public static void menuCliente() throws Exception {
-
-        int opc;
 
         do {
             System.out.println(Constantes.OPCIONES_MENU_CLIENTE);
@@ -297,6 +289,42 @@ public class Orquestador {
 
     public static void menuPrestamo() throws Exception {
 
+        do {
+
+            System.out.println(Constantes.OPCIONES_MENU_PRESTAMO);
+
+            System.out.println(Constantes.INGRESE_OPCION);
+
+            opc = leer.nextInt();
+
+            switch (opc) {
+                case 1:
+                    prestamosServicios.mostrarTodosLosPrestamos().forEach(System.out::println);
+                    break;
+                case 2:
+                    System.out.println(Constantes.INGRESE_DOCUMENTO_CLIENTE);
+                    dni2 = leer.next();
+                    System.out.println(prestamosServicios.mostrarPrestamosPorDNICliente(dni2));
+                    break;
+                case 3:
+                    System.out.println(Constantes.INGRESE_DOCUMENTO_CLIENTE);
+                    dni2 = leer.next();
+                    System.out.println(Constantes.INGRESE_NOMBRE_LIBRO);
+                    titulo = leer.next();
+                    System.out.println(prestamosServicios.prestarLibro(titulo, dni2));
+                    break;
+                case 4:
+                    System.out.println(Constantes.INGRESE_DOCUMENTO_CLIENTE);
+                    dni2 = leer.next();
+                    System.out.println(prestamosServicios.devolverLibro(dni2));
+                    break;
+                case 5:
+                    menuprincipal();
+                    break;
+                default:
+                    System.out.println(Constantes.OPCION_INCORRECTA);
+            }
+        } while (opc != 5);
     }
 
 }

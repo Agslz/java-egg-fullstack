@@ -5,12 +5,19 @@ import Libreria.Constantes.Constantes;
 import java.util.List;
 
 public class ClienteDAOExt extends DAO<Cliente> {
-    
+
     public List<Cliente> mostrarTodosLosClientes() {
         conectar();
         List<Cliente> listaClientes = em.createQuery(Constantes.OBTENER_TODOS_LOS_CLIENTES).getResultList();
         desconectar();
         return listaClientes;
+    }
+
+    public Cliente obtenerClientePorDNI(String dni) {
+        conectar();
+        Cliente cliente = (Cliente) em.createQuery(Constantes.OBTENER_PRESTAMO_POR_DNI).setParameter("DNI", dni).getSingleResult();
+        desconectar();
+        return cliente;
     }
 
     public List<Cliente> obtenerClientePorNombre(String nombre) throws Exception {
@@ -42,5 +49,5 @@ public class ClienteDAOExt extends DAO<Cliente> {
     public void editar(Cliente cliente) {
         super.editar(cliente);
     }
-    
+
 }

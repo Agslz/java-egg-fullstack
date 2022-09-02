@@ -48,6 +48,11 @@ public class Constantes {
     public static final String INGRESE_APELLIDO_CLIENTE = "Ingrese el apellido del cliente";
     public static final String INGRESE_TELEFONO_CLIENTE = "Ingrese el telefono del cliente";
     public static final String INGRESE_DOCUMENTO_CLIENTE = "Ingrese el documento del cliente";
+    public static final String DNI_INVALIDO = "El DNI ingresado es invalido";
+    public static final String PRESTAMO_INVALIDO = "El cliente ya tiene un prestamo pendiente";
+    public static final String PRESTAMO_NO_DISPONIBLE = "Usted no posee ningun prestamo";
+    public static final String PRESTAMO_NO_ENCONTRADO = "No se encontró un Cliente con prestamos";
+    public static final String INGRESE_NOMBRE_LIBRO = "Ingrese el nombre del libro";
     //-------------------------------------------------------------OPCIONES MENU-------------------------------------------------------------
     public static final String INGRESE_OPCION = "Ingrese una opción";
     public static final String SALIDA = "Usted salió del sistema";
@@ -57,7 +62,11 @@ public class Constantes {
     public static final String OBTENER_TODOS_LOS_CLIENTES = "SELECT c FROM Cliente c";
     public static final String OBTENER_CLIENTE_POR_ID = "SELECT c FROM Cliente c WHERE c.id LIKE :id";
     public static final String OBTENER_CLIENTE_POR_NOMBRE = "SELECT c FROM Cliente c WHERE c.nombre LIKE :nombre";
+    public static final String OBTENER_CLIENTE_POR_DNI = "SELECT c FROM Cliente c WHERE c.DNI LIKE :DNI";
     //-------------------------------------------------------------QUERYS PRESTAMO----------------------------------------------------------
+    public static final String OBTENER_TODOS_LOS_PRESTAMOS = "SELECT p FROM Prestamo p";
+    public static final String OBTENER_PRESTAMO_POR_DNI = "SELECT p FROM Prestamo p WHERE p.cliente.DNI LIKE :DNI";
+    public static final String OBTENER_PRESTAMO_POR_NOMBRE_LIBRO = "SELECT p FROM Prestamo p WHERE p.libro.titulo LIKE :titulo";
     //-------------------------------------------------------------QUERYS EDITORIAL----------------------------------------------------------
     public static final String OBTENER_TODAS_LAS_EDITORIALES = "SELECT e FROM Editorial e WHERE e.alta = true";
     public static final String OBTENER_EDITORIAL_POR_ID = "SELECT e FROM Editorial e WHERE e.id LIKE :id";
@@ -121,13 +130,10 @@ public class Constantes {
             + "\n6.Volver al menu principal";
 
     public static final String OPCIONES_MENU_PRESTAMO = "\nOpciones Disponibles"
-            + "\n1.Crear una editorial"
-            + "\n2.Mostrar todas las editoriales"
-            + "\n3.Buscar una editorial usando su ID"
-            + "\n4.Buscar una editorial usando su nombre"
-            + "\n5.Modificar una editorial usando su ID"
-            + "\n6.Dar de alta una editorial"
-            + "\n7.Dar de baja una editorial"
-            + "\n8.Volver al menu principal";
+            + "\n1.Mostrar todos los prestamos"
+            + "\n2.Buscar una prestamo usando el DNI del cliente"
+            + "\n3.Pedir un libro"
+            + "\n4.Devolver un libro"
+            + "\n5.Volver al menu principal";
 
 }
