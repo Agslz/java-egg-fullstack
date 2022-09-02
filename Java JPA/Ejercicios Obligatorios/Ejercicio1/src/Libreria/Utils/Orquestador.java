@@ -18,6 +18,17 @@ public class Orquestador {
     private static final EditorialServicios editorialServicios = new EditorialServicios();
     private static final ClienteServicios clienteServicios = new ClienteServicios();
     private static final PrestamoServicios prestamosServicios = new PrestamoServicios();
+    private static Autor autores = new Autor();
+    private static Editorial editoriales = new Editorial();
+    public static String nombre;
+    public static String apellido;
+    public static String titulo;
+    public static String telefono;
+    public static String id;
+    public static Long isbn;
+    public static Long dni;
+    public static Integer anio;
+    public static Integer copias;
 
     public static void menuprincipal() throws Exception {
 
@@ -71,7 +82,7 @@ public class Orquestador {
             switch (opc) {
                 case 1:
                     System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-                    String nombre = leer.next();
+                    nombre = leer.next();
                     autorServicios.crearAutor(nombre, autorServicios.pedirAltaAutor());
                     break;
                 case 2:
@@ -123,17 +134,17 @@ public class Orquestador {
             switch (opc) {
                 case 1:
                     System.out.println(Constantes.INGRESE_ISBN);
-                    Long isbn = leer.nextLong();
+                    isbn = leer.nextLong();
                     System.out.println(Constantes.INGRESE_TITULO);
-                    String titulo = leer.next();
+                    titulo = leer.next();
                     System.out.println(Constantes.INGRESE_ANIO_LANZAMIENTO);
-                    Integer anio = leer.nextInt();
+                    anio = leer.nextInt();
                     System.out.println(Constantes.INGRESE_COPIAS_LIBROS);
-                    Integer copias = leer.nextInt();
+                    copias = leer.nextInt();
                     System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-                    Autor autores = libroServicios.pedirAutor(leer.next());
+                    autores = libroServicios.pedirAutor(leer.next());
                     System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-                    Editorial editoriales = libroServicios.pedirEditorial(leer.next());
+                    editoriales = libroServicios.pedirEditorial(leer.next());
                     libroServicios.crearLibro(isbn, titulo, anio, copias, autores, editoriales);
                     break;
                 case 2:
@@ -189,7 +200,7 @@ public class Orquestador {
             switch (opc) {
                 case 1:
                     System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-                    String nombre = leer.next();
+                    nombre = leer.next();
                     editorialServicios.crearEditorial(nombre, editorialServicios.pedirAltaEditorial());
                     break;
                 case 2:
@@ -240,13 +251,13 @@ public class Orquestador {
             switch (opc) {
                 case 1:
                     System.out.println(Constantes.INGRESE_DOCUMENTO_CLIENTE);
-                    Long dni = leer.nextLong();
+                    dni = leer.nextLong();
                     System.out.println(Constantes.INGRESE_NOMBRE_CLIENTE);
-                    String nombre = leer.next();
+                    nombre = leer.next();
                     System.out.println(Constantes.INGRESE_APELLIDO_CLIENTE);
-                    String apellido = leer.next();
+                    apellido = leer.next();
                     System.out.println(Constantes.INGRESE_TELEFONO_CLIENTE);
-                    String telefono = leer.next();
+                    telefono = leer.next();
                     System.out.println(clienteServicios.crearCliente(dni, nombre, apellido, telefono));
                     break;
                 case 2:
@@ -262,7 +273,7 @@ public class Orquestador {
                     break;
                 case 5:
                     System.out.println(Constantes.INGRESE_ID_CLIENTE);
-                    String id = leer.next();
+                    id = leer.next();
                     System.out.println(Constantes.INGRESE_DOCUMENTO_CLIENTE);
                     dni = leer.nextLong();
                     System.out.println(Constantes.INGRESE_NOMBRE_CLIENTE);
