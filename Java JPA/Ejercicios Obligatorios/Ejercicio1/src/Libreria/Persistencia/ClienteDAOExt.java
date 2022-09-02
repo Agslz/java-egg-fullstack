@@ -43,9 +43,4 @@ public class ClienteDAOExt extends DAO<Cliente> {
         super.editar(cliente);
     }
     
-    @Override
-    public void eliminar(Cliente cliente){
-        super.eliminar(cliente);
-    }
-
 }
