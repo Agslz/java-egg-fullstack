@@ -12,18 +12,8 @@ public class EditorialServicios {
 
     private final EditorialDAOExt DAO = new EditorialDAOExt();
 
-    public Editorial crearEditorial(String nombre) throws Exception {
-        Editorial editorial = new Editorial();
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new Exception(Constantes.NOMBRE_INVALIDO);
-        }
-        editorial.setNombre(nombre);
-        pedirAltaEditorial(editorial);
-        return editorial;
-    }
-
-    public String guardarEditorial() throws Exception {
-        DAO.guardar(crearEditorial(leer.next()));
+    public String crearEditorial(String nombre, Boolean alta) throws Exception {
+        DAO.guardar(new Editorial(nombre, alta));
         return Constantes.EDITORIAL_ANADIDA;
     }
 
@@ -68,7 +58,7 @@ public class EditorialServicios {
             }
             System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
             editorial.setNombre(leer.next());
-            pedirAltaEditorial(editorial);
+            pedirAltaEditorial();
             DAO.editar(editorial);
             return editorial;
         } catch (Exception e) {
@@ -106,10 +96,10 @@ public class EditorialServicios {
         }
     }
 
-    public void pedirAltaEditorial(Editorial editorial) {
+    public Boolean pedirAltaEditorial() {
         System.out.println(Constantes.PREGUNTA_EDITORIAL_DISPONIBLE);
         String opc = leer.next().substring(0, 1);
-        editorial.setAlta(opc.equalsIgnoreCase("S"));
+        return opc.equalsIgnoreCase("S") ? Boolean.TRUE : Boolean.FALSE;
     }
 
 }

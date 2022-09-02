@@ -12,18 +12,8 @@ public class AutorServicios {
 
     private final AutorDAOExt DAO = new AutorDAOExt();
 
-    public Autor crearAutor(String nombre) throws Exception {
-        Autor autor = new Autor();
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new Exception(Constantes.AUTOR_NO_ENCONTRADO);
-        }
-        autor.setNombre(nombre);
-        autor.setAlta(pedirAltaAutor());
-        return autor;
-    }
-
-    public String guardarAutor() throws Exception {
-        DAO.guardar(crearAutor(leer.next()));
+    public String crearAutor(String nombre, Boolean alta) throws Exception {
+        DAO.guardar(new Autor(nombre, alta));  
         return Constantes.AUTOR_ANADIDO;
     }
 

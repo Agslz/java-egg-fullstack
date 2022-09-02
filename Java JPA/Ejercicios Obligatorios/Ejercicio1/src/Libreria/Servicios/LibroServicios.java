@@ -20,43 +20,12 @@ public class LibroServicios {
         return DAO.obtenerTodosLosLibros();
     }
 
-    public String guardarLibro() throws Exception {
-        DAO.guardar(crearLibro());
-        return Constantes.LIBRO_ANADIDO;
+    public String crearLibro(Long isbn, String titulo, Integer anio, Integer ejemplares, Autor autor, Editorial editorial) throws Exception {
+        DAO.guardar(new Libro(isbn, titulo, anio, ejemplares, 0, ejemplares, Boolean.TRUE, autor, editorial));
+        return Constantes.LIBRO_ANADIDO; 
     }
 
-    public Libro crearLibro() throws Exception {
-
-        Libro libro = new Libro();
-
-        System.out.println(Constantes.INGRESE_ISBN);
-        libro.setIsbn(leer.nextLong());
-
-        System.out.println(Constantes.INGRESE_TITULO);
-        libro.setTitulo(leer.next());
-
-        System.out.println(Constantes.INGRESE_ANIO_LANZAMIENTO);
-        libro.setAnio(leer.nextInt());
-
-        System.out.println(Constantes.INGRESE_COPIAS_LIBROS);
-        Integer copias = leer.nextInt();
-        libro.setEjemplares(copias);
-        libro.setEjemplaresRestantes(copias);
-        libro.setEjemplaresPrestados(0);
-        libro.setAlta(Boolean.TRUE);
-
-        System.out.println(Constantes.INGRESE_NOMBRE_AUTOR);
-        Autor autor = pedirAutor(leer.next());
-        libro.setAutor(autor);
-
-        System.out.println(Constantes.INGRESE_NOMBRE_EDITORIAL);
-        Editorial editorial = pedirEditorial(leer.next());
-        libro.setEditorial(editorial);
-
-        return libro;
-    }
-
-    private Autor pedirAutor(String nombre) throws Exception {
+    public Autor pedirAutor(String nombre) throws Exception {
         try {
             Autor autor;
             do {
@@ -71,7 +40,7 @@ public class LibroServicios {
         }
     }
 
-    private Editorial pedirEditorial(String nombre) throws Exception {
+    public Editorial pedirEditorial(String nombre) throws Exception {
         try {
             Editorial editorial;
             do {
