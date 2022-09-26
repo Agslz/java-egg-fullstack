@@ -11,7 +11,7 @@
 
 ## Si tenes algún inconveniente no dudes en consultarme
 
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Agslz)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ags099)
 
 ## También podes unirte al Discord
 
